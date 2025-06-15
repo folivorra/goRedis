@@ -1,0 +1,638 @@
+INFO: 2025/06/01 14:58:48 main.go:24: Init logger
+INFO: 2025/06/01 14:58:48 main.go:29: Init redis client
+INFO: 2025/06/01 14:58:48 main.go:45: Loaded data from redis
+INFO: 2025/06/01 14:58:48 main.go:60: Creating controller, router and register routes were finished
+INFO: 2025/06/01 14:58:48 main.go:68: Starting server on port 8080
+ERROR: 2025/06/01 15:00:35 mux.go:38: AddItem: item already exists
+INFO: 2025/06/01 15:00:40 mux.go:110: GetItem successfully
+INFO: 2025/06/01 15:00:44 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 15:00:50 mux.go:48: AddItem successfully
+INFO: 2025/06/01 15:00:55 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 15:02:20 main.go:79: Shutdown server ...
+INFO: 2025/06/01 15:02:20 main.go:86: Snapshot dumped in redis
+INFO: 2025/06/01 15:02:20 main.go:91: Snapshot dumped in file
+INFO: 2025/06/01 15:02:20 main.go:101: Server gracefully shutdown
+INFO: 2025/06/01 15:02:20 main.go:102: Server exiting
+INFO: 2025/06/01 15:03:46 main.go:24: Init logger
+INFO: 2025/06/01 15:03:46 main.go:29: Init redis client
+WARNING: 2025/06/01 15:03:46 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 15:03:46 main.go:42: Loaded data from file
+INFO: 2025/06/01 15:03:46 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:03:46 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:05:00 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:05:00 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:05:00 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:05:00 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:05:00 main.go:103: Server exiting
+INFO: 2025/06/01 15:05:09 main.go:24: Init logger
+INFO: 2025/06/01 15:05:09 main.go:29: Init redis client
+INFO: 2025/06/01 15:05:09 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:05:09 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:05:09 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:06:18 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:06:18 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:06:18 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:06:18 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:06:18 main.go:103: Server exiting
+INFO: 2025/06/01 15:10:28 main.go:24: Init logger
+INFO: 2025/06/01 15:10:28 main.go:29: Init redis client
+WARNING: 2025/06/01 15:10:28 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 15:10:28 main.go:42: Loaded data from file
+INFO: 2025/06/01 15:10:28 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:10:28 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:10:28 redisPersister.go:56: Starting DumpForTTL background process
+INFO: 2025/06/01 15:12:38 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:12:38 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:12:38 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:12:38 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:12:38 main.go:103: Server exiting
+INFO: 2025/06/01 15:12:50 main.go:24: Init logger
+INFO: 2025/06/01 15:12:50 main.go:29: Init redis client
+WARNING: 2025/06/01 15:12:50 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 15:12:50 main.go:42: Loaded data from file
+INFO: 2025/06/01 15:12:50 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:12:50 redisPersister.go:56: Starting DumpForTTL background process
+INFO: 2025/06/01 15:12:50 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:13:42 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:13:42 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:13:42 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:13:42 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:13:42 main.go:103: Server exiting
+INFO: 2025/06/01 15:13:54 main.go:24: Init logger
+INFO: 2025/06/01 15:13:54 main.go:29: Init redis client
+INFO: 2025/06/01 15:13:54 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:13:54 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:13:54 redisPersister.go:56: Starting DumpForTTL background process
+INFO: 2025/06/01 15:13:54 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:14:01 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:15:47 main.go:80: Shutdown server ...
+WARNING: 2025/06/01 15:15:49 redisPersister.go:66: Failed to get TTL: dial tcp: lookup redis: i/o timeout
+WARNING: 2025/06/01 15:15:56 redisPersister.go:66: Failed to get TTL: dial tcp: lookup redis: i/o timeout
+INFO: 2025/06/01 15:16:14 main.go:24: Init logger
+INFO: 2025/06/01 15:16:14 main.go:29: Init redis client
+WARNING: 2025/06/01 15:16:14 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 15:16:14 main.go:42: Loaded data from file
+INFO: 2025/06/01 15:16:14 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:16:14 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:16:21 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:16:28 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:16:35 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:16:42 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:16:49 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:16:56 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:03 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:10 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:17 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:24 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:31 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:38 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:45 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:52 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:17:59 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:06 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:06 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:18:06 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:18:06 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:18:06 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:18:06 main.go:103: Server exiting
+INFO: 2025/06/01 15:18:12 main.go:24: Init logger
+INFO: 2025/06/01 15:18:12 main.go:29: Init redis client
+INFO: 2025/06/01 15:18:12 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:18:12 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:18:12 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:18:19 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:19 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:18:26 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:33 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:40 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:47 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:18:54 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:01 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:08 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:15 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:22 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:29 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:36 redisPersister.go:60: Starting DumpForTTL background process
+INFO: 2025/06/01 15:19:37 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:19:37 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:19:37 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:19:37 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:19:37 main.go:103: Server exiting
+INFO: 2025/06/01 15:20:43 main.go:24: Init logger
+INFO: 2025/06/01 15:20:43 main.go:29: Init redis client
+INFO: 2025/06/01 15:20:43 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:20:43 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:20:43 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:20:50 redisPersister.go:68: TTL: -1ns
+INFO: 2025/06/01 15:20:50 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:20:57 redisPersister.go:68: TTL: 23s
+INFO: 2025/06/01 15:21:04 redisPersister.go:68: TTL: 16s
+INFO: 2025/06/01 15:21:11 redisPersister.go:68: TTL: 9s
+INFO: 2025/06/01 15:21:18 redisPersister.go:68: TTL: 2s
+INFO: 2025/06/01 15:21:25 redisPersister.go:68: TTL: -2ns
+INFO: 2025/06/01 15:21:32 redisPersister.go:68: TTL: -2ns
+INFO: 2025/06/01 15:21:39 redisPersister.go:68: TTL: -2ns
+INFO: 2025/06/01 15:21:46 redisPersister.go:68: TTL: -2ns
+INFO: 2025/06/01 15:21:53 redisPersister.go:68: TTL: -2ns
+INFO: 2025/06/01 15:21:58 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:21:58 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:21:58 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:21:58 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:21:58 main.go:103: Server exiting
+INFO: 2025/06/01 15:22:46 main.go:24: Init logger
+INFO: 2025/06/01 15:22:46 main.go:29: Init redis client
+INFO: 2025/06/01 15:22:46 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:22:46 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:22:46 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:22:53 redisPersister.go:68: TTL: -1ns
+INFO: 2025/06/01 15:22:53 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:23:00 redisPersister.go:68: TTL: 23s
+INFO: 2025/06/01 15:23:07 redisPersister.go:68: TTL: 16s
+INFO: 2025/06/01 15:23:14 redisPersister.go:68: TTL: 9s
+INFO: 2025/06/01 15:23:14 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:23:21 redisPersister.go:68: TTL: 23s
+INFO: 2025/06/01 15:23:28 redisPersister.go:68: TTL: 16s
+INFO: 2025/06/01 15:23:35 redisPersister.go:68: TTL: 9s
+INFO: 2025/06/01 15:23:35 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:23:42 redisPersister.go:68: TTL: 23s
+INFO: 2025/06/01 15:23:49 redisPersister.go:68: TTL: 16s
+INFO: 2025/06/01 15:23:56 redisPersister.go:68: TTL: 9s
+INFO: 2025/06/01 15:23:56 redisPersister.go:76: Snapshot dumped successfully
+INFO: 2025/06/01 15:24:03 redisPersister.go:68: TTL: 23s
+INFO: 2025/06/01 15:24:03 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:24:03 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:24:03 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:24:03 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:24:03 main.go:103: Server exiting
+INFO: 2025/06/01 15:26:22 main.go:24: Init logger
+INFO: 2025/06/01 15:26:22 main.go:29: Init redis client
+INFO: 2025/06/01 15:26:22 main.go:45: Loaded data from redis
+INFO: 2025/06/01 15:26:22 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 15:26:22 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 15:26:29 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 15:27:25 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 15:27:35 main.go:80: Shutdown server ...
+INFO: 2025/06/01 15:27:35 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 15:27:35 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 15:27:35 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 15:27:35 main.go:103: Server exiting
+INFO: 2025/06/01 18:54:47 main.go:24: Init logger
+INFO: 2025/06/01 18:54:47 main.go:29: Init redis client
+WARNING: 2025/06/01 18:54:47 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 18:54:47 main.go:42: Loaded data from file
+INFO: 2025/06/01 18:54:47 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 18:54:47 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 18:56:23 main.go:80: Shutdown server ...
+INFO: 2025/06/01 18:56:23 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 18:56:23 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 18:56:23 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 18:56:23 main.go:103: Server exiting
+INFO: 2025/06/01 18:56:27 main.go:24: Init logger
+INFO: 2025/06/01 18:56:27 main.go:29: Init redis client
+INFO: 2025/06/01 18:56:27 main.go:45: Loaded data from redis
+INFO: 2025/06/01 18:56:27 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 18:56:27 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 18:57:16 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 18:57:32 main.go:80: Shutdown server ...
+INFO: 2025/06/01 18:57:32 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 18:57:32 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 18:57:32 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 18:57:32 main.go:103: Server exiting
+INFO: 2025/06/01 18:57:32 main.go:24: Init logger
+INFO: 2025/06/01 18:57:32 main.go:29: Init redis client
+INFO: 2025/06/01 18:57:35 main.go:45: Loaded data from redis
+INFO: 2025/06/01 18:57:35 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 18:57:35 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 18:58:24 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 18:58:30 main.go:80: Shutdown server ...
+INFO: 2025/06/01 18:58:30 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 18:58:30 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 18:58:30 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 18:58:30 main.go:103: Server exiting
+INFO: 2025/06/01 18:58:42 main.go:24: Init logger
+INFO: 2025/06/01 18:58:42 main.go:29: Init redis client
+INFO: 2025/06/01 18:58:42 main.go:45: Loaded data from redis
+INFO: 2025/06/01 18:58:42 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 18:58:42 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 18:59:24 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:00:20 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:01:16 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:02:12 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:03:08 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:03:38 main.go:80: Shutdown server ...
+INFO: 2025/06/01 19:03:38 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 19:03:38 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 19:03:38 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 19:03:38 main.go:103: Server exiting
+INFO: 2025/06/01 19:05:16 main.go:24: Init logger
+INFO: 2025/06/01 19:05:16 main.go:29: Init redis client
+WARNING: 2025/06/01 19:05:16 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 19:05:16 main.go:42: Loaded data from file
+INFO: 2025/06/01 19:05:16 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 19:05:16 main.go:65: Starting server on port 8080
+WARNING: 2025/06/01 19:05:40 redisPersister.go:65: Failed to get TTL: dial tcp 172.18.0.2:6379: i/o timeout
+WARNING: 2025/06/01 19:05:47 redisPersister.go:65: Failed to get TTL: dial tcp: lookup redis: i/o timeout
+INFO: 2025/06/01 19:05:49 main.go:80: Shutdown server ...
+WARNING: 2025/06/01 19:05:54 redisPersister.go:65: Failed to get TTL: dial tcp: lookup redis: i/o timeout
+INFO: 2025/06/01 19:06:11 main.go:24: Init logger
+INFO: 2025/06/01 19:06:11 main.go:29: Init redis client
+WARNING: 2025/06/01 19:06:11 main.go:37: Failed to load data from redis
+INFO: 2025/06/01 19:06:11 main.go:42: Loaded data from file
+INFO: 2025/06/01 19:06:11 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 19:06:11 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 19:07:23 main.go:80: Shutdown server ...
+INFO: 2025/06/01 19:07:23 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 19:07:23 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 19:07:23 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 19:07:23 main.go:103: Server exiting
+INFO: 2025/06/01 19:07:34 main.go:24: Init logger
+INFO: 2025/06/01 19:07:34 main.go:29: Init redis client
+INFO: 2025/06/01 19:07:34 main.go:45: Loaded data from redis
+INFO: 2025/06/01 19:07:34 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 19:07:34 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 19:07:41 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:08:15 main.go:80: Shutdown server ...
+INFO: 2025/06/01 19:08:15 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 19:08:15 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 19:08:15 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 19:08:15 main.go:103: Server exiting
+INFO: 2025/06/01 19:08:18 main.go:24: Init logger
+INFO: 2025/06/01 19:08:18 main.go:29: Init redis client
+INFO: 2025/06/01 19:08:18 main.go:45: Loaded data from redis
+INFO: 2025/06/01 19:08:18 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 19:08:18 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 19:08:25 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:08:49 main.go:80: Shutdown server ...
+INFO: 2025/06/01 19:08:49 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 19:08:49 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 19:08:49 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 19:08:49 main.go:103: Server exiting
+INFO: 2025/06/01 19:08:52 main.go:24: Init logger
+INFO: 2025/06/01 19:08:52 main.go:29: Init redis client
+INFO: 2025/06/01 19:08:52 main.go:45: Loaded data from redis
+INFO: 2025/06/01 19:08:52 main.go:57: Creating controller, router and register routes were finished
+INFO: 2025/06/01 19:08:52 main.go:65: Starting server on port 8080
+INFO: 2025/06/01 19:08:59 redisPersister.go:75: Snapshot dumped successfully
+INFO: 2025/06/01 19:09:11 main.go:80: Shutdown server ...
+INFO: 2025/06/01 19:09:11 main.go:87: Snapshot dumped in redis
+INFO: 2025/06/01 19:09:11 main.go:92: Snapshot dumped in file
+INFO: 2025/06/01 19:09:11 main.go:102: Server gracefully shutdown
+INFO: 2025/06/01 19:09:11 main.go:103: Server exiting
+INFO: 2025/06/01 22:00:49 main.go:25: Init logger
+INFO: 2025/06/01 22:00:49 main.go:30: Init redis client
+INFO: 2025/06/01 22:00:49 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:00:49 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:00:49 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:00:56 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:01:54 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:01:54 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:01:55 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:01:55 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:01:55 main.go:113: Server exiting
+INFO: 2025/06/01 22:02:41 main.go:25: Init logger
+INFO: 2025/06/01 22:02:41 main.go:30: Init redis client
+INFO: 2025/06/01 22:02:41 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:02:41 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:02:41 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:02:48 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:03:02 main.go:25: Init logger
+INFO: 2025/06/01 22:03:02 main.go:30: Init redis client
+INFO: 2025/06/01 22:03:02 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:03:02 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:03:02 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:03:02 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:03:25 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:03:25 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:03:25 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:03:25 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:03:25 main.go:113: Server exiting
+INFO: 2025/06/01 22:05:31 main.go:25: Init logger
+INFO: 2025/06/01 22:05:31 main.go:30: Init redis client
+INFO: 2025/06/01 22:05:31 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:05:31 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:05:31 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:05:38 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:05:51 main.go:25: Init logger
+INFO: 2025/06/01 22:05:51 main.go:30: Init redis client
+INFO: 2025/06/01 22:05:51 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:05:51 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:05:51 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:05:51 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:06:10 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:06:10 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:06:10 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:06:10 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:06:10 main.go:113: Server exiting
+INFO: 2025/06/01 22:11:46 main.go:25: Init logger
+INFO: 2025/06/01 22:11:46 main.go:30: Init redis client
+INFO: 2025/06/01 22:11:46 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:11:46 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:11:46 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:11:50 main.go:25: Init logger
+INFO: 2025/06/01 22:11:50 main.go:30: Init redis client
+INFO: 2025/06/01 22:11:50 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:11:50 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:11:50 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:11:50 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:11:53 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:11:56 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:11:56 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:11:56 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:11:56 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:11:56 main.go:113: Server exiting
+INFO: 2025/06/01 22:12:09 main.go:25: Init logger
+INFO: 2025/06/01 22:12:09 main.go:30: Init redis client
+INFO: 2025/06/01 22:12:09 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:12:09 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:12:09 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:12:16 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:12:17 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:12:17 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:12:17 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:12:17 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:12:17 main.go:113: Server exiting
+INFO: 2025/06/01 22:13:01 main.go:25: Init logger
+INFO: 2025/06/01 22:13:01 main.go:30: Init redis client
+INFO: 2025/06/01 22:13:01 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:13:01 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:13:01 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:13:08 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:13:25 main.go:25: Init logger
+INFO: 2025/06/01 22:13:25 main.go:30: Init redis client
+INFO: 2025/06/01 22:13:25 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:13:25 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:13:25 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:13:25 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:14:16 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:14:16 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:14:16 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:14:16 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:14:16 main.go:113: Server exiting
+INFO: 2025/06/01 22:15:54 main.go:25: Init logger
+INFO: 2025/06/01 22:15:54 main.go:30: Init redis client
+INFO: 2025/06/01 22:15:54 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:15:54 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:15:54 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:16:01 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:16:05 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:16:05 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:16:05 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:16:05 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:16:05 main.go:113: Server exiting
+INFO: 2025/06/01 22:18:49 main.go:25: Init logger
+INFO: 2025/06/01 22:18:49 main.go:30: Init redis client
+INFO: 2025/06/01 22:18:49 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:18:49 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:18:49 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:18:56 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:19:12 main.go:25: Init logger
+INFO: 2025/06/01 22:19:12 main.go:30: Init redis client
+INFO: 2025/06/01 22:19:12 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:19:12 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:19:12 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:19:12 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:19:43 main.go:89: Shutdown server ...
+INFO: 2025/06/01 22:19:43 main.go:97: Snapshot dumped in redis
+INFO: 2025/06/01 22:19:43 main.go:102: Snapshot dumped in file
+INFO: 2025/06/01 22:19:43 main.go:112: Server gracefully shutdown
+INFO: 2025/06/01 22:19:43 main.go:113: Server exiting
+INFO: 2025/06/01 22:34:30 main.go:25: Init logger
+INFO: 2025/06/01 22:34:30 main.go:30: Init redis client
+INFO: 2025/06/01 22:34:30 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:34:30 main.go:65: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:34:30 main.go:73: Starting server on port 8080
+INFO: 2025/06/01 22:34:37 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:36:29 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:37:49 main.go:25: Init logger
+INFO: 2025/06/01 22:37:49 main.go:30: Init redis client
+INFO: 2025/06/01 22:37:49 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:37:49 main.go:56: Run CLI-mode ...
+INFO: 2025/06/01 22:38:21 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:38:41 mux.go:68: DeleteItem successfully
+INFO: 2025/06/01 22:39:38 main.go:93: Shutdown server ...
+INFO: 2025/06/01 22:39:38 main.go:101: Snapshot dumped in redis
+INFO: 2025/06/01 22:39:38 main.go:106: Snapshot dumped in file
+INFO: 2025/06/01 22:39:38 main.go:116: Server gracefully shutdown
+INFO: 2025/06/01 22:39:38 main.go:117: Server exiting
+INFO: 2025/06/01 22:50:45 main.go:25: Init logger
+INFO: 2025/06/01 22:50:45 main.go:30: Init redis client
+INFO: 2025/06/01 22:50:45 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:50:45 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:50:45 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 22:50:52 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:51:14 main.go:25: Init logger
+INFO: 2025/06/01 22:51:14 main.go:30: Init redis client
+INFO: 2025/06/01 22:51:14 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:51:14 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:51:14 main.go:84: Starting CLI (in the same process)
+INFO: 2025/06/01 22:51:14 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 22:51:14 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 22:52:44 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:54:36 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:54:57 main.go:91: Shutdown server ...
+INFO: 2025/06/01 22:54:57 main.go:99: Snapshot dumped in redis
+INFO: 2025/06/01 22:54:57 main.go:104: Snapshot dumped in file
+INFO: 2025/06/01 22:54:57 main.go:114: Server gracefully shutdown
+INFO: 2025/06/01 22:54:57 main.go:115: Server exiting
+INFO: 2025/06/01 22:55:12 main.go:25: Init logger
+INFO: 2025/06/01 22:55:12 main.go:30: Init redis client
+INFO: 2025/06/01 22:55:12 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:55:12 main.go:73: Creating controller, router and register routes were finished
+INFO: 2025/06/01 22:55:12 main.go:81: Starting server on port 8080
+INFO: 2025/06/01 22:55:19 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:55:31 main.go:25: Init logger
+INFO: 2025/06/01 22:55:31 main.go:30: Init redis client
+INFO: 2025/06/01 22:55:31 main.go:46: Loaded data from redis
+INFO: 2025/06/01 22:55:31 main.go:64: Starting CLI
+INFO: 2025/06/01 22:56:51 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:56:53 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:56:54 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:56:55 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:57:11 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 22:57:49 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:57:49 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 22:57:52 main.go:93: Shutdown server ...
+INFO: 2025/06/01 22:57:52 main.go:101: Snapshot dumped in redis
+INFO: 2025/06/01 22:57:52 main.go:106: Snapshot dumped in file
+INFO: 2025/06/01 22:57:52 main.go:116: Server gracefully shutdown
+INFO: 2025/06/01 22:57:52 main.go:117: Server exiting
+INFO: 2025/06/01 23:03:42 main.go:25: Init logger
+INFO: 2025/06/01 23:03:42 main.go:30: Init redis client
+INFO: 2025/06/01 23:03:42 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:03:42 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:03:42 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:03:48 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:03:48 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:03:48 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:03:48 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:03:48 main.go:112: Server exiting
+INFO: 2025/06/01 23:09:37 main.go:25: Init logger
+INFO: 2025/06/01 23:09:37 main.go:30: Init redis client
+INFO: 2025/06/01 23:09:37 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:09:37 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:09:37 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:09:44 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:09:45 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:09:45 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:09:45 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:09:45 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:09:45 main.go:112: Server exiting
+INFO: 2025/06/01 23:10:53 main.go:25: Init logger
+INFO: 2025/06/01 23:10:53 main.go:30: Init redis client
+INFO: 2025/06/01 23:10:53 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:10:53 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:10:53 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:11:00 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:11:32 main.go:25: Init logger
+INFO: 2025/06/01 23:11:32 main.go:30: Init redis client
+INFO: 2025/06/01 23:11:32 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:11:32 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:11:32 main.go:66: Starting server on port 8080
+ERROR: 2025/06/01 23:11:32 main.go:68: Failed to listen: listen tcp :8080: bind: address already in use
+INFO: 2025/06/01 23:12:04 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 23:12:10 mux.go:48: AddItem successfully
+INFO: 2025/06/01 23:12:23 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:12:23 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:12:23 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:12:23 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:12:23 main.go:112: Server exiting
+INFO: 2025/06/01 23:18:33 main.go:25: Init logger
+INFO: 2025/06/01 23:18:33 main.go:30: Init redis client
+INFO: 2025/06/01 23:18:33 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:18:33 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:18:33 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:18:40 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:19:33 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:19:33 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:19:33 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:19:33 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:19:33 main.go:112: Server exiting
+INFO: 2025/06/01 23:19:44 main.go:25: Init logger
+INFO: 2025/06/01 23:19:44 main.go:30: Init redis client
+INFO: 2025/06/01 23:19:44 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:19:44 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:19:44 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:19:51 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:21:43 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:22:46 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:22:46 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:22:46 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:22:46 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:22:46 main.go:114: Server exiting
+INFO: 2025/06/01 23:23:52 main.go:25: Init logger
+INFO: 2025/06/01 23:23:52 main.go:30: Init redis client
+INFO: 2025/06/01 23:23:52 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:23:52 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:23:52 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:23:59 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:25:51 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:26:04 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:26:04 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:26:04 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:26:04 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:26:04 main.go:114: Server exiting
+INFO: 2025/06/01 23:27:30 main.go:25: Init logger
+INFO: 2025/06/01 23:27:30 main.go:30: Init redis client
+INFO: 2025/06/01 23:27:30 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:27:30 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:27:30 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:27:37 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:28:35 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:28:35 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:28:35 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:28:35 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:28:35 main.go:114: Server exiting
+INFO: 2025/06/01 23:28:44 main.go:25: Init logger
+INFO: 2025/06/01 23:28:44 main.go:30: Init redis client
+INFO: 2025/06/01 23:28:44 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:28:44 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:28:44 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:28:51 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:29:11 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:29:11 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:29:11 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:29:11 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:29:11 main.go:114: Server exiting
+INFO: 2025/06/01 23:29:36 main.go:25: Init logger
+INFO: 2025/06/01 23:29:36 main.go:30: Init redis client
+INFO: 2025/06/01 23:29:36 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:29:36 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:29:36 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:29:43 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:30:13 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:30:13 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:30:13 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:30:13 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:30:13 main.go:114: Server exiting
+INFO: 2025/06/01 23:30:20 main.go:25: Init logger
+INFO: 2025/06/01 23:30:20 main.go:30: Init redis client
+INFO: 2025/06/01 23:30:20 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:30:20 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:30:20 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:30:27 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:30:30 mux.go:68: DeleteItem successfully
+INFO: 2025/06/01 23:30:54 mux.go:85: GetAllItems successfully
+INFO: 2025/06/01 23:31:25 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:31:25 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:31:25 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:31:25 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:31:25 main.go:114: Server exiting
+INFO: 2025/06/01 23:31:57 main.go:25: Init logger
+INFO: 2025/06/01 23:31:57 main.go:30: Init redis client
+INFO: 2025/06/01 23:31:57 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:31:57 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:31:57 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:32:04 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:32:23 main.go:90: Shutdown server ...
+INFO: 2025/06/01 23:32:23 main.go:98: Snapshot dumped in redis
+INFO: 2025/06/01 23:32:23 main.go:103: Snapshot dumped in file
+INFO: 2025/06/01 23:32:23 main.go:113: Server gracefully shutdown
+INFO: 2025/06/01 23:32:23 main.go:114: Server exiting
+INFO: 2025/06/01 23:35:01 main.go:25: Init logger
+INFO: 2025/06/01 23:35:01 main.go:30: Init redis client
+INFO: 2025/06/01 23:35:01 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:35:01 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:35:01 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:35:08 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:37:00 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:37:51 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:37:51 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:37:51 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:37:51 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:37:51 main.go:112: Server exiting
+INFO: 2025/06/01 23:39:05 main.go:25: Init logger
+INFO: 2025/06/01 23:39:05 main.go:30: Init redis client
+INFO: 2025/06/01 23:39:05 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:39:05 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:39:05 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:39:12 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:39:21 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:39:21 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:39:21 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:39:21 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:39:21 main.go:112: Server exiting
+INFO: 2025/06/01 23:39:51 main.go:25: Init logger
+INFO: 2025/06/01 23:39:51 main.go:30: Init redis client
+INFO: 2025/06/01 23:39:51 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:39:51 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:39:51 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:39:58 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:41:50 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:43:42 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:45:12 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:45:12 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:45:12 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:45:12 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:45:12 main.go:112: Server exiting
+INFO: 2025/06/01 23:45:14 main.go:25: Init logger
+INFO: 2025/06/01 23:45:14 main.go:30: Init redis client
+INFO: 2025/06/01 23:45:14 main.go:46: Loaded data from redis
+INFO: 2025/06/01 23:45:14 main.go:58: Creating controller, router and register routes were finished
+INFO: 2025/06/01 23:45:14 main.go:66: Starting server on port 8080
+INFO: 2025/06/01 23:45:21 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:47:13 redisPersister.go:79: Snapshot dumped successfully
+INFO: 2025/06/01 23:48:29 main.go:88: Shutdown server ...
+INFO: 2025/06/01 23:48:29 main.go:96: Snapshot dumped in redis
+INFO: 2025/06/01 23:48:29 main.go:101: Snapshot dumped in file
+INFO: 2025/06/01 23:48:29 main.go:111: Server gracefully shutdown
+INFO: 2025/06/01 23:48:29 main.go:112: Server exiting
