@@ -1,1 +1,1 @@
-# redisDumper
+# goRedis
