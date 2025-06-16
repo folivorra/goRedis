@@ -37,45 +37,13 @@ func (p *RedisPersister) Load(ctx context.Context) (map[int]model.Item, error) {
 	return result, nil
 }
 
-func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int]model.Item, ttlSeconds int) error {
+func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int]model.Item, ttl time.Duration) error {
 	bytes, err := json.Marshal(data)
 	if err != nil {
 		return err
 	}
 
-	var expire time.Duration
-	if ttlSeconds > 0 {
-		expire = time.Duration(ttlSeconds) * time.Second
-	}
+	expire := ttl
 
 	return p.rdb.Set(ctx, p.key, bytes, expire).Err()
-
-	//ticker := time.NewTicker(7 * time.Second)
-	//defer ticker.Stop()
-	//
-	//for {
-	//	select {
-	//	case <-ctx.Done():
-	//		return
-	//	case <-ticker.C:
-	//		ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
-	//		ttl, err := p.rdb.TTL(ctx, p.key).Result()
-	//		cancel()
-	//		// от зависаний редиса
-	//		if err != nil {
-	//			logger.WarningLogger.Println("Failed to get TTL:", err)
-	//			continue
-	//		}
-	//
-	//		if ttl >= -1 && ttl < 10*time.Second {
-	//			snapshot := store.Snapshot()
-	//
-	//			if err = p.Dump(snapshot, 2*time.Minute); err != nil {
-	//				logger.ErrorLogger.Println("Failed to dump snapshot:", err)
-	//			} else {
-	//				logger.InfoLogger.Println("Snapshot dumped successfully")
-	//			}
-	//		}
-	//	}
-	//}
 }
