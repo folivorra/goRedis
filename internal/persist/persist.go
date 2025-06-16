@@ -3,6 +3,7 @@ package persist
 import (
 	"context"
 	"github.com/folivorra/goRedis/internal/model"
+	"time"
 )
 
 type Loader interface {
@@ -14,5 +15,5 @@ type Dumper interface {
 }
 
 type TTLSetter interface {
-	DumpTTL(ctx context.Context, data map[int]model.Item, ttlSeconds int) error
+	DumpTTL(ctx context.Context, data map[int]model.Item, ttl time.Duration) error
 }
