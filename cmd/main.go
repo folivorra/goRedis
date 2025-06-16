@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/cli"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/controller"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/logger"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/persist"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/storage"
+	"github.com/folivorra/goRedis/internal/cli"
+	"github.com/folivorra/goRedis/internal/config"
+	"github.com/folivorra/goRedis/internal/controller"
+	"github.com/folivorra/goRedis/internal/logger"
+	"github.com/folivorra/goRedis/internal/persist"
+	"github.com/folivorra/goRedis/internal/storage"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -17,7 +18,16 @@ import (
 )
 
 func main() {
-	err := logger.Init("/app/logs/app.log")
+	cfgPath := os.Getenv("APP_CONFIG")
+	if cfgPath == "" {
+		cfgPath = "/app/config/app_config.yaml"
+	}
+	cfg, err := config.Load(cfgPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = logger.Init(cfg.Logger.LogFile)
 	if err != nil {
 		log.Fatal("Failed to init logger: ", err)
 	}
@@ -29,8 +39,8 @@ func main() {
 	rdb := storage.NewRedisClient() // клиент редиса
 	logger.InfoLogger.Println("Init redis client")
 
-	redisPersister := persist.NewRedisPersister(rdb, "myapp:items")
-	filePersister := persist.NewFilePersister("/app/data/backup.json")
+	redisPersister := persist.NewRedisPersister(rdb, cfg.Storage.RedisKey)
+	filePersister := persist.NewFilePersister(cfg.Storage.DumpFile)
 	// сущности для дампинга и лоада из файла и из редиса
 
 	data, err := redisPersister.Load()
@@ -58,8 +68,8 @@ func main() {
 	logger.InfoLogger.Println("Creating controller, router and register routes were finished")
 
 	srv := &http.Server{ // создаем объект сервера
-		Addr:    ":8080", // который будет слушать 8080 порт
-		Handler: router,  // и обрабатываться маршрутизатором router
+		Addr:    cfg.Server.Port, // который будет слушать 8080 порт
+		Handler: router,          // и обрабатываться маршрутизатором router
 	}
 
 	go func() {

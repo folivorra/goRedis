@@ -2,9 +2,9 @@ package controller
 
 import (
 	"encoding/json"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/logger"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/model"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/storage"
+	"github.com/folivorra/goRedis/internal/logger"
+	"github.com/folivorra/goRedis/internal/model"
+	"github.com/folivorra/goRedis/internal/storage"
 	"github.com/gorilla/mux"
 	"net/http"
 	"strconv"

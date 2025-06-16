@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/model"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/storage"
+	"github.com/folivorra/goRedis/internal/model"
+	"github.com/folivorra/goRedis/internal/storage"
 )
 
 func RunCLI(ctx context.Context, store *storage.InMemoryStorage) {

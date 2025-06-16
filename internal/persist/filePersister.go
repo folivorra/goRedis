@@ -2,7 +2,7 @@ package persist
 
 import (
 	"encoding/json"
-	"github.com/folivorra/studyDir/tree/develop/goRedis/internal/model"
+	"github.com/folivorra/goRedis/internal/model"
 	"os"
 )
 

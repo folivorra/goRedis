@@ -6,7 +6,10 @@ services:
       - "8080:8080"
     stdin_open: true
     tty: true
+    environment:
+      - APP_CONFIG=/app/config/app_config.yaml
     volumes:
+      - ./config:/app/config:ro
       - ./data:/app/data
       - ./logs:/app/logs
     depends_on:

@@ -1,6 +1,6 @@
 package persist
 
-import "github.com/folivorra/studyDir/tree/develop/goRedis/internal/model"
+import "github.com/folivorra/goRedis/internal/model"
 
 type Persister interface {
 	Load() (map[int]model.Item, error)
