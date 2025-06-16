@@ -1,6 +1,7 @@
 package persist
 
 import (
+	"context"
 	"encoding/json"
 	"github.com/folivorra/goRedis/internal/model"
 	"os"
@@ -14,7 +15,7 @@ func NewFilePersister(path string) *FilePersister {
 	return &FilePersister{path: path}
 }
 
-func (f *FilePersister) Dump(data map[int]model.Item) error {
+func (f *FilePersister) Dump(ctx context.Context, data map[int]model.Item) error {
 	bytes, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return err
@@ -26,7 +27,7 @@ func (f *FilePersister) Dump(data map[int]model.Item) error {
 	return nil
 }
 
-func (f *FilePersister) Load() (map[int]model.Item, error) {
+func (f *FilePersister) Load(ctx context.Context) (map[int]model.Item, error) {
 	data, err := os.ReadFile(f.path)
 	if err != nil {
 		if os.IsNotExist(err) {
