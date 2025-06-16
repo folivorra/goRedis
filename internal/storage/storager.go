@@ -8,4 +8,6 @@ type Storager interface {
 	UpdateItem(item model.Item) (err error)
 	DeleteItem(id int) (err error)
 	GetItem(id int) (item model.Item, err error)
+	Snapshot() map[int]model.Item
+	Replace(data map[int]model.Item)
 }
