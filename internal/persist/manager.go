@@ -67,4 +67,7 @@ func (m *Manager) Stop() {
 	if err := m.f.Dump(ctx, snap); err != nil {
 		logger.WarningLogger.Printf("dump to file error: %s", err)
 	}
+	if err := m.r.Close(); err != nil {
+		logger.WarningLogger.Printf("close redis error: %s", err)
+	}
 }

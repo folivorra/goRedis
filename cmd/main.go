@@ -17,12 +17,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	app, err := app.NewApp(cfg)
+	a, err := app.NewApp(cfg)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	app.Start()
-	app.Wait()
-	app.Shutdown()
+	a.Start()
+	a.Wait()
+	a.Shutdown()
 }
