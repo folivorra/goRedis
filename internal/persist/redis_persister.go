@@ -47,3 +47,7 @@ func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int]model.Item, t
 
 	return p.rdb.Set(ctx, p.key, bytes, expire).Err()
 }
+
+func (p *RedisPersister) Close() error {
+	return p.rdb.Close()
+}
