@@ -21,6 +21,7 @@ type App struct {
 	persistence *persist.Manager
 	cliManager  *cli.Manager
 	shutdownCh  chan os.Signal
+	cleanup     []func()
 	rootCtx     context.Context
 	ctxCancel   context.CancelFunc
 }
@@ -65,6 +66,9 @@ func NewApp(cfg *config.Config) (*App, error) {
 
 func (a *App) Start() {
 	a.persistence.Start(a.rootCtx)
+	a.RegisterCleanup(func() {
+		a.persistence.Stop()
+	})
 
 	a.cliManager.Start(a.rootCtx)
 
@@ -74,6 +78,13 @@ func (a *App) Start() {
 			a.ctxCancel()
 		}
 	}()
+	a.RegisterCleanup(func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := a.server.Shutdown(ctx); err != nil {
+			logger.ErrorLogger.Printf("server shutdown error: %s", err)
+		}
+	})
 }
 
 func (a *App) Wait() {
@@ -85,12 +96,13 @@ func (a *App) Shutdown() {
 
 	a.ctxCancel()
 
-	a.persistence.Stop()
-
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	if err := a.server.Shutdown(ctx); err != nil {
-		logger.ErrorLogger.Printf("server shutdown error: %s", err)
+	for _, cleanup := range a.cleanup {
+		cleanup()
 	}
+
 	logger.InfoLogger.Println("shutdown complete")
+}
+
+func (a *App) RegisterCleanup(f func()) {
+	a.cleanup = append(a.cleanup, f)
 }
