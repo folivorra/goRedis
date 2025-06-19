@@ -54,7 +54,7 @@ func (m *Manager) handle(cmd string) {
 			return
 		}
 		for _, item := range all {
-			fmt.Printf("ID: %d | Name: %s | Price: %.2f\n", item.ID, item.Name, item.Price)
+			fmt.Printf("ID: %-3d | Name: %-10s | Price: %.2f\n", item.ID, item.Name, item.Price)
 		}
 
 	case strings.HasPrefix(cmd, "get "):
@@ -72,7 +72,7 @@ func (m *Manager) handle(cmd string) {
 		if err != nil {
 			fmt.Println("Not found")
 		} else {
-			fmt.Printf("ID: %d | Name: %s | Price: %.2f\n", item.ID, item.Name, item.Price)
+			fmt.Printf("ID: %-3d | Name: %-10s | Price: %.2f\n", item.ID, item.Name, item.Price)
 		}
 
 	case strings.HasPrefix(cmd, "set "):
@@ -96,7 +96,7 @@ func (m *Manager) handle(cmd string) {
 		if err != nil {
 			fmt.Println("Error:", err)
 		} else {
-			fmt.Printf("Added: ID: %d | Name: %s | Price: %.2f\n", id, name, price)
+			fmt.Printf("Added: ID: %-3d | Name: %-10s | Price: %.2f\n", id, name, price)
 		}
 
 	case strings.HasPrefix(cmd, "del "):
@@ -138,7 +138,7 @@ func (m *Manager) handle(cmd string) {
 		if err != nil {
 			fmt.Println("Error:", err)
 		} else {
-			fmt.Printf("Updated: ID: %d | Name: %s | Price: %.2f\n", id, name, price)
+			fmt.Printf("Updated: ID: %-3d | Name: %-10s | Price: %.2f\n", id, name, price)
 		}
 
 	default:
