@@ -13,6 +13,7 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
     depends_on:
+      - postgres
       - redis
     networks:
       - app-network
@@ -27,8 +28,22 @@ services:
     networks:
       - app-network
 
+  postgres:
+    image: postgres:17-alpine
+    environment:
+        - POSTGRES_USER=myuser
+        - POSTGRES_PASSWORD=mypassword
+    container_name: postgres
+    ports:
+        - "5432:5432"
+    volumes:
+        - postgres_data:/var/lib/postgresql/data
+    networks:
+        - app-network
+
 volumes:
   redis_data:
+  postgres_data:
 
 networks:
   app-network:

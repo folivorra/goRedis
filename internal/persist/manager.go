@@ -11,14 +11,16 @@ type Manager struct {
 	store storage.Storager
 	f     *FilePersister
 	r     *RedisPersister
+	p     *PostgresPersister
 	ttl   time.Duration
 }
 
-func NewManager(ctx context.Context, store storage.Storager, f *FilePersister, r *RedisPersister, ttl time.Duration) *Manager {
+func NewManager(ctx context.Context, store storage.Storager, f *FilePersister, r *RedisPersister, p *PostgresPersister, ttl time.Duration) *Manager {
 	m := &Manager{
 		store: store,
 		f:     f,
 		r:     r,
+		p:     p,
 		ttl:   ttl,
 	}
 	m.restore(ctx)
@@ -28,10 +30,17 @@ func NewManager(ctx context.Context, store storage.Storager, f *FilePersister, r
 func (m *Manager) restore(ctx context.Context) {
 	if data, _ := m.r.Load(ctx); data != nil {
 		m.store.Replace(data)
+		logger.InfoLogger.Println("redis data restored")
+		return
+	}
+	if data, _ := m.p.Load(ctx); data != nil {
+		m.store.Replace(data)
+		logger.InfoLogger.Println("postgres data restored")
 		return
 	}
 	if data, _ := m.f.Load(ctx); data != nil {
 		m.store.Replace(data)
+		logger.InfoLogger.Println("file data restored")
 	}
 }
 
@@ -64,10 +73,16 @@ func (m *Manager) Stop() {
 	if err := m.r.Dump(ctx, snap); err != nil {
 		logger.WarningLogger.Printf("dump to redis error: %s", err)
 	}
+	if err := m.p.Dump(ctx, snap); err != nil {
+		logger.WarningLogger.Printf("dump to postgres error: %s", err)
+	}
 	if err := m.f.Dump(ctx, snap); err != nil {
 		logger.WarningLogger.Printf("dump to file error: %s", err)
 	}
 	if err := m.r.Close(); err != nil {
 		logger.WarningLogger.Printf("close redis error: %s", err)
+	}
+	if err := m.p.Close(); err != nil {
+		logger.WarningLogger.Printf("close postgres error: %s", err)
 	}
 }

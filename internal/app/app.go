@@ -42,10 +42,18 @@ func NewApp(cfg *config.Config) (*App, error) {
 	// --- redis ---
 	rdb := storage.NewRedisClient()
 
+	// --- postgres ---
+	post, err := storage.NewPostgresClient(ctx, cfg.Storage.PostgresDSN)
+	if err != nil {
+		cancel()
+		return nil, fmt.Errorf("init postgres error: %s", err)
+	}
+
 	// --- load ---
+	p := persist.NewPostgresPersister(post)
 	r := persist.NewRedisPersister(rdb, cfg.Storage.RedisKey)
 	f := persist.NewFilePersister(cfg.Storage.DumpFile)
-	pers := persist.NewManager(ctx, store, f, r, cfg.Storage.TTL)
+	pers := persist.NewManager(ctx, store, f, r, p, cfg.Storage.TTL)
 
 	// --- http-server ---
 	srv := server.NewServer(cfg, store)

@@ -12,9 +12,10 @@ type Config struct {
 	} `yaml:"server"`
 
 	Storage struct {
-		TTL      time.Duration `yaml:"ttl"`
-		RedisKey string        `yaml:"redis_key"`
-		DumpFile string        `yaml:"dump_file"`
+		TTL         time.Duration `yaml:"ttl"`
+		RedisKey    string        `yaml:"redis_key"`
+		DumpFile    string        `yaml:"dump_file"`
+		PostgresDSN string        `yaml:"postgres_dsn"`
 	} `yaml:"storage"`
 
 	Logger struct {
