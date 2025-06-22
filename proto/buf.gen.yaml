@@ -1,0 +1,14 @@
+version: v2
+
+clean: true
+
+plugins:
+  - name: buf.build/gen/protoc-gen-go
+    out: ../pkg/proto
+    opt:
+      - paths=source_relative
+
+  - name: buf.build/gen/protoc-gen-go-grpc
+    out: ../pkg/proto
+    opt:
+      - paths=source_relative

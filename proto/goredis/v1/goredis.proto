@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package goredis.v1;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/folivorra/goRedis/proto/goredis/v1;goredis_v1";
+
+message Item {
+  int64 id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+message GetItemRequest {
+  int64 id = 1;
+}
+
+message GetItemResponse {
+  Item item = 1;
+}
+
+message CreateItemRequest {
+  Item item = 1;
+}
+
+message CreateItemResponse {
+  Item item = 1;
+}
+
+message UpdateItemRequest {
+  Item item = 1;
+}
+
+message UpdateItemResponse {
+  Item item = 1;
+}
+
+message DeleteItemRequest {
+  int64 id = 1;
+}
+
+message DeleteItemResponse {
+  google.protobuf.Empty empty = 1;
+}
+
+message GetAllItemsRequest {
+  google.protobuf.Empty empty = 1;
+}
+
+message GetAllItemsResponse {
+  repeated Item items = 1;
+}
+
+service GoRedisService {
+    rpc GetItem(GetItemRequest) returns (GetItemResponse);
+    rpc CreateItem(CreateItemRequest) returns (CreateItemResponse);
+    rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
+    rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse);
+    rpc GetAllItems(GetAllItemsRequest) returns (GetAllItemsResponse);
+}
