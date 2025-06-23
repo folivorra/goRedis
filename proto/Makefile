@@ -2,11 +2,11 @@ BUF_VERSION                 = v1.54.0
 PROTOC_GEN_GO_VERSION       = v1.36.6
 PROTOC_GEN_GO_GRPC_VERSION  = v1.5.1
 
-ROOT_DIR 							= $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+ROOT_DIR 					= $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 BIN_DIR          			= $(ROOT_DIR)/bin
 BUF              			= $(BIN_DIR)/buf
 PROTOC_GEN_GO    			= $(BIN_DIR)/protoc-gen-go
-PROTOC_GEN_GO_GRPC 		= $(BIN_DIR)/protoc-gen-go-grpc
+PROTOC_GEN_GO_GRPC 			= $(BIN_DIR)/protoc-gen-go-grpc
 
 .PHONY: all gen clean
 
