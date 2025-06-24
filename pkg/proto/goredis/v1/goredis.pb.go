@@ -26,7 +26,7 @@ type Item struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Price         float32                `protobuf:"fixed32,3,opt,name=price,proto3" json:"price,omitempty"`
+	Price         float64                `protobuf:"fixed64,3,opt,name=price,proto3" json:"price,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -75,7 +75,7 @@ func (x *Item) GetName() string {
 	return ""
 }
 
-func (x *Item) GetPrice() float32 {
+func (x *Item) GetPrice() float64 {
 	if x != nil {
 		return x.Price
 	}
@@ -531,7 +531,7 @@ const file_goredis_v1_goredis_proto_rawDesc = "" +
 	"\x04Item\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05price\x18\x03 \x01(\x02R\x05price\" \n" +
+	"\x05price\x18\x03 \x01(\x01R\x05price\" \n" +
 	"\x0eGetItemRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"7\n" +
 	"\x0fGetItemResponse\x12$\n" +

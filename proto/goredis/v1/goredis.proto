@@ -9,7 +9,7 @@ option go_package = "github.com/folivorra/goRedis/proto/goredis/v1;goredis_v1";
 message Item {
   int64 id = 1;
   string name = 2;
-  float price = 3;
+  double price = 3;
 }
 
 message GetItemRequest {
