@@ -1,9 +1,8 @@
-package server
+package rest
 
 import (
 	"context"
 	"github.com/folivorra/goRedis/internal/config"
-	"github.com/folivorra/goRedis/internal/controller"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/storage"
 	"github.com/gorilla/mux"
@@ -16,7 +15,7 @@ type Server struct {
 }
 
 func NewServer(cfg *config.Config, store storage.Storager) *Server {
-	c := controller.NewItemController(store)
+	c := NewItemController(store)
 	r := mux.NewRouter()
 	c.RegisterRoutes(r)
 

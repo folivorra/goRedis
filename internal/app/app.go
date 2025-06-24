@@ -7,8 +7,8 @@ import (
 	"github.com/folivorra/goRedis/internal/config"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/persist"
-	"github.com/folivorra/goRedis/internal/server"
 	"github.com/folivorra/goRedis/internal/storage"
+	"github.com/folivorra/goRedis/internal/transport/rest"
 	"os"
 	"os/signal"
 	"syscall"
@@ -17,7 +17,7 @@ import (
 
 type App struct {
 	store       *storage.InMemoryStorage
-	server      *server.Server
+	server      *rest.Server
 	persistence *persist.Manager
 	cliManager  *cli.Manager
 	shutdownCh  chan os.Signal
@@ -55,8 +55,8 @@ func NewApp(cfg *config.Config) (*App, error) {
 	f := persist.NewFilePersister(cfg.Storage.DumpFile)
 	pers := persist.NewManager(ctx, store, f, r, p, cfg.Storage.TTL)
 
-	// --- http-server ---
-	srv := server.NewServer(cfg, store)
+	// --- rest-server ---
+	srv := rest.NewServer(cfg, store)
 
 	// --- cli ---
 	cliManager := cli.NewManager(store)
