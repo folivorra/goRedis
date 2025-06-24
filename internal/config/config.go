@@ -8,7 +8,8 @@ import (
 
 type Config struct {
 	Server struct {
-		Port string `yaml:"port"`
+		HttpPort string `yaml:"http_port"`
+		GrpcPort string `yaml:"grpc_port"`
 	} `yaml:"server"`
 
 	Storage struct {

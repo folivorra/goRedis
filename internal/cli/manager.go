@@ -68,7 +68,7 @@ func (m *Manager) handle(cmd string) {
 			fmt.Println("Invalid ID")
 			return
 		}
-		item, err := m.store.GetItem(id)
+		item, err := m.store.GetItem(int64(id))
 		if err != nil {
 			fmt.Println("Not found")
 		} else {
@@ -92,7 +92,7 @@ func (m *Manager) handle(cmd string) {
 			fmt.Println("Invalid price")
 			return
 		}
-		err = m.store.AddItem(model.Item{ID: id, Name: name, Price: price})
+		err = m.store.CreateItem(model.Item{ID: int64(id), Name: name, Price: price})
 		if err != nil {
 			fmt.Println("Error:", err)
 		} else {
@@ -110,7 +110,7 @@ func (m *Manager) handle(cmd string) {
 			fmt.Println("Invalid id")
 			return
 		}
-		err = m.store.DeleteItem(id)
+		err = m.store.DeleteItem(int64(id))
 		if err != nil {
 			fmt.Println("Error:", err)
 		} else {
@@ -134,7 +134,7 @@ func (m *Manager) handle(cmd string) {
 			fmt.Println("Invalid price")
 			return
 		}
-		err = m.store.UpdateItem(model.Item{ID: id, Name: name, Price: price})
+		err = m.store.UpdateItem(model.Item{ID: int64(id), Name: name, Price: price})
 		if err != nil {
 			fmt.Println("Error:", err)
 		} else {

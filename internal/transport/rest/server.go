@@ -20,7 +20,7 @@ func NewServer(cfg *config.Config, store storage.Storager) *Server {
 	c.RegisterRoutes(r)
 
 	srv := &http.Server{
-		Addr:    cfg.Server.Port,
+		Addr:    cfg.Server.HttpPort,
 		Handler: r,
 	}
 
@@ -31,7 +31,7 @@ func NewServer(cfg *config.Config, store storage.Storager) *Server {
 }
 
 func (s *Server) Start() error {
-	logger.InfoLogger.Println("Starting server on port 8080")
+	logger.InfoLogger.Println("Starting REST server on port 8080")
 	err := s.httpServer.ListenAndServe()
 	if err == http.ErrServerClosed {
 		return nil

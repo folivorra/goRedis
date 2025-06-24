@@ -14,7 +14,7 @@ func NewPostgresPersister(db *sql.DB) *PostgresPersister {
 	return &PostgresPersister{db: db}
 }
 
-func (p *PostgresPersister) Dump(ctx context.Context, data map[int]model.Item) error {
+func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
 	if err := p.tableInit(); err != nil {
 		return err
 	}
@@ -46,7 +46,7 @@ func (p *PostgresPersister) tableInit() error {
 	return err
 }
 
-func (p *PostgresPersister) Load(ctx context.Context) (map[int]model.Item, error) {
+func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
 	if err := p.tableInit(); err != nil {
 		return nil, err
 	}
@@ -57,15 +57,15 @@ func (p *PostgresPersister) Load(ctx context.Context) (map[int]model.Item, error
 	}
 	defer rows.Close()
 
-	var result map[int]model.Item
-	id := 0
+	var result map[int64]model.Item
+	var id int64 = 0
 	for rows.Next() {
 		var item model.Item
 		if err := rows.Scan(&item.ID, &item.Name, &item.Price); err != nil {
 			return nil, err
 		}
 		if result == nil {
-			result = make(map[int]model.Item)
+			result = make(map[int64]model.Item)
 		}
 		result[id] = item
 		id++

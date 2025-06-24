@@ -7,13 +7,13 @@ import (
 )
 
 type Loader interface {
-	Load(ctx context.Context) (map[int]model.Item, error)
+	Load(ctx context.Context) (map[int64]model.Item, error)
 }
 
 type Dumper interface {
-	Dump(ctx context.Context, data map[int]model.Item) error
+	Dump(ctx context.Context, data map[int64]model.Item) error
 }
 
 type TTLSetter interface {
-	DumpTTL(ctx context.Context, data map[int]model.Item, ttl time.Duration) error
+	DumpTTL(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error
 }

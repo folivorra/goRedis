@@ -4,6 +4,7 @@ services:
     container_name: myapp
     ports:
       - "8080:8080"
+      - "50051:50051"
     stdin_open: true
     tty: true
     environment:

@@ -8,7 +8,10 @@ import (
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/persist"
 	"github.com/folivorra/goRedis/internal/storage"
+	"github.com/folivorra/goRedis/internal/transport"
+	"github.com/folivorra/goRedis/internal/transport/grpc"
 	"github.com/folivorra/goRedis/internal/transport/rest"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
@@ -17,7 +20,7 @@ import (
 
 type App struct {
 	store       *storage.InMemoryStorage
-	server      *rest.Server
+	servers     []transport.ToServe
 	persistence *persist.Manager
 	cliManager  *cli.Manager
 	shutdownCh  chan os.Signal
@@ -55,15 +58,27 @@ func NewApp(cfg *config.Config) (*App, error) {
 	f := persist.NewFilePersister(cfg.Storage.DumpFile)
 	pers := persist.NewManager(ctx, store, f, r, p, cfg.Storage.TTL)
 
-	// --- rest-server ---
-	srv := rest.NewServer(cfg, store)
+	// --- servers ---
+	var servers []transport.ToServe
+
+	// --- grpc-server ---
+	grpcSrv, err := grpc.NewServer(cfg, store)
+	if err != nil {
+		cancel()
+		return nil, fmt.Errorf("init grpc server error: %s", err)
+	}
+	servers = append(servers, grpcSrv)
+
+	// --- http-server ---
+	httpSrv := rest.NewServer(cfg, store)
+	servers = append(servers, httpSrv)
 
 	// --- cli ---
 	cliManager := cli.NewManager(store)
 
 	return &App{
 		store:       store,
-		server:      srv,
+		servers:     servers,
 		persistence: pers,
 		cliManager:  cliManager,
 		shutdownCh:  make(chan os.Signal),
@@ -80,19 +95,22 @@ func (a *App) Start() {
 
 	a.cliManager.Start(a.rootCtx)
 
-	go func() {
-		if err := a.server.Start(); err != nil {
-			logger.ErrorLogger.Printf("server start error: %s", err)
-			a.ctxCancel()
-		}
-	}()
-	a.RegisterCleanup(func() {
-		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-		defer cancel()
-		if err := a.server.Shutdown(ctx); err != nil {
-			logger.ErrorLogger.Printf("server shutdown error: %s", err)
-		}
-	})
+	for _, srv := range a.servers {
+		srv := srv
+		go func() {
+			if err := srv.Start(); err != nil && err != http.ErrServerClosed {
+				logger.ErrorLogger.Printf("server start error: %s", err)
+				a.ctxCancel()
+			}
+		}()
+		a.RegisterCleanup(func() {
+			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			defer cancel()
+			if err := srv.Shutdown(ctx); err != nil {
+				logger.ErrorLogger.Printf("server shutdown error: %s", err)
+			}
+		})
+	}
 }
 
 func (a *App) Wait() {

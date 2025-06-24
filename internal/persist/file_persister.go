@@ -15,7 +15,7 @@ func NewFilePersister(path string) *FilePersister {
 	return &FilePersister{path: path}
 }
 
-func (f *FilePersister) Dump(ctx context.Context, data map[int]model.Item) error {
+func (f *FilePersister) Dump(_ context.Context, data map[int64]model.Item) error {
 	bytes, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return err
@@ -27,7 +27,7 @@ func (f *FilePersister) Dump(ctx context.Context, data map[int]model.Item) error
 	return nil
 }
 
-func (f *FilePersister) Load(ctx context.Context) (map[int]model.Item, error) {
+func (f *FilePersister) Load(_ context.Context) (map[int64]model.Item, error) {
 	data, err := os.ReadFile(f.path)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -36,7 +36,7 @@ func (f *FilePersister) Load(ctx context.Context) (map[int]model.Item, error) {
 		return nil, err
 	}
 
-	result := make(map[int]model.Item)
+	result := make(map[int64]model.Item)
 
 	if err = json.Unmarshal(data, &result); err != nil {
 		return nil, err

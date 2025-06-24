@@ -17,11 +17,11 @@ func NewRedisPersister(rdb *redis.Client, key string) *RedisPersister {
 	return &RedisPersister{rdb: rdb, key: key}
 }
 
-func (p *RedisPersister) Dump(ctx context.Context, data map[int]model.Item) error {
+func (p *RedisPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
 	return p.DumpTTL(ctx, data, 0)
 }
 
-func (p *RedisPersister) Load(ctx context.Context) (map[int]model.Item, error) {
+func (p *RedisPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
 	bytes, err := p.rdb.Get(ctx, p.key).Result()
 	if err == redis.Nil {
 		return nil, nil
@@ -29,7 +29,7 @@ func (p *RedisPersister) Load(ctx context.Context) (map[int]model.Item, error) {
 		return nil, err
 	}
 
-	result := make(map[int]model.Item)
+	result := make(map[int64]model.Item)
 	if err = json.Unmarshal([]byte(bytes), &result); err != nil {
 		return nil, err
 	}
@@ -37,7 +37,7 @@ func (p *RedisPersister) Load(ctx context.Context) (map[int]model.Item, error) {
 	return result, nil
 }
 
-func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int]model.Item, ttl time.Duration) error {
+func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error {
 	bytes, err := json.Marshal(data)
 	if err != nil {
 		return err
