@@ -36,4 +36,4 @@ data/
 logs/
 
 # proto bin files
-proto/bin
+proto/bin/
