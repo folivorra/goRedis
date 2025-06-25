@@ -47,8 +47,8 @@
      Periodic dump (TTL)             | Snapshot on shutdown
                                      v
             +------------+      +-----------+      +----------------+
-            |   Redis    |      | PostgreSQL |      |   JSON-file    |
-            |  (KEY)     |      |  table     |      |  backup.json   |
+            |   Redis    |      | PostgreSQL |     |   JSON-file    |
+            |  (KEY)     |      |  table     |     |  backup.json   |
             +------------+      +-----------+      +----------------+
 ```
 
