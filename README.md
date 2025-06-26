@@ -53,7 +53,7 @@
 ```
 
 * **Manager** (`internal/persist/manager.go`) занимается восстановлением и резервным копированием.
-* **Storager** (`internal/storage/storager.go`) описывает единственный CRUD-интерфейс, имплементации: *memory.go*, *redis.go*, *postgres.go*.
+* **Storager** (`internal/storage/storager.go`) описывает единственный CRUD-интерфейс, имплементация *memory.go*.
 * **Logger**: вся логика прозрачна и покрыта логированием (`internal/logger`).
 
 ---

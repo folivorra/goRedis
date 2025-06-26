@@ -65,7 +65,7 @@ func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, err
 			return nil, err
 		}
 		if result == nil {
-			result = make(map[int64]model.Item)
+			result = make(map[int64]model.Item) // TODO: cap
 		}
 		result[id] = item
 		id++

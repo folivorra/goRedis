@@ -12,7 +12,7 @@ type Manager struct {
 	f     *FilePersister
 	r     *RedisPersister
 	p     *PostgresPersister
-	ttl   time.Duration
+	ttl   time.Duration // TODO: prior
 }
 
 func NewManager(ctx context.Context, store storage.Storager, f *FilePersister, r *RedisPersister, p *PostgresPersister, ttl time.Duration) *Manager {
@@ -63,12 +63,12 @@ func (m *Manager) dumpToRedis(ctx context.Context) {
 	snap := m.store.Snapshot()
 	if err := m.r.DumpTTL(ctx, snap, m.ttl); err != nil {
 		logger.WarningLogger.Printf("periodic dump to redis error: %s", err)
-	}
+	} // TODO: if error to next persister
 }
 
 func (m *Manager) Stop() {
 	snap := m.store.Snapshot()
-	ctx := context.Background()
+	ctx := context.Background() // TODO: переделать
 
 	if err := m.r.Dump(ctx, snap); err != nil {
 		logger.WarningLogger.Printf("dump to redis error: %s", err)
@@ -78,7 +78,7 @@ func (m *Manager) Stop() {
 	}
 	if err := m.f.Dump(ctx, snap); err != nil {
 		logger.WarningLogger.Printf("dump to file error: %s", err)
-	}
+	} // TODO: to centralize
 	if err := m.r.Close(); err != nil {
 		logger.WarningLogger.Printf("close redis error: %s", err)
 	}
