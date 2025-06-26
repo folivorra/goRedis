@@ -30,5 +30,10 @@ go.work.sum
 # Editor/IDE
 .idea/
 .vscode/
+
+# data and logs from docker
 data/
 logs/
+
+# proto bin files
+proto/bin/

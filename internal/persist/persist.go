@@ -1,8 +1,19 @@
 package persist
 
-import "github.com/folivorra/studyDir/tree/develop/goRedis/internal/model"
+import (
+	"context"
+	"github.com/folivorra/goRedis/internal/model"
+	"time"
+)
 
-type Persister interface {
-	Load() (map[int]model.Item, error)
-	Dump(data map[int]model.Item) error
+type Loader interface {
+	Load(ctx context.Context) (map[int64]model.Item, error)
+}
+
+type Dumper interface {
+	Dump(ctx context.Context, data map[int64]model.Item) error
+}
+
+type TTLSetter interface {
+	DumpTTL(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error
 }

@@ -1,0 +1,12 @@
+server:
+  http_port: ":8080"
+  grpc_port: ":50051"
+
+storage:
+  ttl: "2m"
+  redis_key: "myapp:items"
+  dump_file: "/app/data/backup.json"
+  postgres_dsn: "postgresql://myuser:mypassword@postgres:5432/"
+
+logger:
+  log_file: "/app/logs/app.log"
