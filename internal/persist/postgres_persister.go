@@ -15,10 +15,6 @@ func NewPostgresPersister(db *sql.DB) *PostgresPersister {
 }
 
 func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
-	if err := p.tableInit(); err != nil {
-		return err
-	}
-
 	queryDelete := `DELETE FROM items`
 	_, err := p.db.ExecContext(ctx, queryDelete)
 	if err != nil {
@@ -35,22 +31,7 @@ func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item)
 	return nil
 }
 
-func (p *PostgresPersister) tableInit() error {
-	var query = `
-	CREATE TABLE IF NOT EXISTS items (
-		id SERIAL PRIMARY KEY,
-		name TEXT NOT NULL,
-		price DOUBLE PRECISION NOT NULL
-	)`
-	_, err := p.db.Exec(query)
-	return err
-}
-
 func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
-	if err := p.tableInit(); err != nil {
-		return nil, err
-	}
-
 	rows, err := p.db.QueryContext(ctx, "SELECT id, name, price FROM items")
 	if err != nil {
 		return nil, err
