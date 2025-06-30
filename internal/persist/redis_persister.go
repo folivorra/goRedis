@@ -17,8 +17,15 @@ func NewRedisPersister(rdb *redis.Client, key string) *RedisPersister {
 	return &RedisPersister{rdb: rdb, key: key}
 }
 
-func (p *RedisPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
-	return p.DumpTTL(ctx, data, 0)
+func (p *RedisPersister) Dump(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error {
+	bytes, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+
+	expire := ttl
+
+	return p.rdb.Set(ctx, p.key, bytes, expire).Err()
 }
 
 func (p *RedisPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
@@ -35,17 +42,6 @@ func (p *RedisPersister) Load(ctx context.Context) (map[int64]model.Item, error)
 	}
 
 	return result, nil
-}
-
-func (p *RedisPersister) DumpTTL(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error {
-	bytes, err := json.Marshal(data)
-	if err != nil {
-		return err
-	}
-
-	expire := ttl
-
-	return p.rdb.Set(ctx, p.key, bytes, expire).Err()
 }
 
 func (p *RedisPersister) Close() error {

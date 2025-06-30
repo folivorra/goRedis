@@ -53,10 +53,13 @@ func NewApp(cfg *config.Config) (*App, error) {
 	}
 
 	// --- load ---
-	p := persist.NewPostgresPersister(post)
-	r := persist.NewRedisPersister(rdb, cfg.Storage.RedisKey)
-	f := persist.NewFilePersister(cfg.Storage.DumpFile)
-	pers := persist.NewManager(ctx, store, f, r, p, cfg.Storage.TTL)
+	p := persist.NewPriorityPersister(persist.NewPostgresPersister(post))
+	r := persist.NewPriorityPersister(persist.NewRedisPersister(rdb, cfg.Storage.RedisKey))
+	f := persist.NewPriorityPersister(persist.NewFilePersister(cfg.Storage.DumpFile))
+	persisters := []*persist.PriorityPersister{p, r, f}
+
+	pers := persist.NewManager(store, persisters, cfg.Storage.TTL)
+	pers.Restore(ctx)
 
 	// --- servers ---
 	var servers []transport.ToServe

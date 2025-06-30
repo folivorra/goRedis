@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"github.com/folivorra/goRedis/internal/model"
+	"time"
 )
 
 type PostgresPersister struct {
@@ -14,7 +15,7 @@ func NewPostgresPersister(db *sql.DB) *PostgresPersister {
 	return &PostgresPersister{db: db}
 }
 
-func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
+func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item, _ time.Duration) error {
 	queryDelete := `DELETE FROM items`
 	_, err := p.db.ExecContext(ctx, queryDelete)
 	if err != nil {

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"github.com/folivorra/goRedis/internal/model"
 	"os"
+	"time"
 )
 
 type FilePersister struct {
@@ -15,7 +16,7 @@ func NewFilePersister(path string) *FilePersister {
 	return &FilePersister{path: path}
 }
 
-func (f *FilePersister) Dump(_ context.Context, data map[int64]model.Item) error {
+func (f *FilePersister) Dump(_ context.Context, data map[int64]model.Item, _ time.Duration) error {
 	bytes, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
 		return err
