@@ -26,5 +26,5 @@ func main() {
 	a.Wait()
 	a.Shutdown()
 
-	// TODO: event-sourcing arch || state mashion || SAGA pattern
+	// TODO: event-sourcing arch || state machine || SAGA pattern
 }
