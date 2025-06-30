@@ -42,6 +42,20 @@ services:
     networks:
         - app-network
 
+  migrate:
+    image: migrate/migrate
+    depends_on:
+      - postgres
+    volumes:
+      - ./migrations:/migrations
+    command: [
+      "-path", "/migrations",
+      "-database", "postgres://myuser:mypassword@postgres:5432/?sslmode=disable",
+      "up"
+    ]
+    networks:
+      - app-network
+
 volumes:
   redis_data:
   postgres_data:
