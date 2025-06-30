@@ -20,7 +20,7 @@ import (
 
 type App struct {
 	store       *storage.InMemoryStorage
-	servers     []transport.ToServe
+	servers     []transport.Server
 	persistence *persist.Manager
 	cliManager  *cli.Manager
 	shutdownCh  chan os.Signal
@@ -62,7 +62,7 @@ func NewApp(cfg *config.Config) (*App, error) {
 	pers.Restore(ctx)
 
 	// --- servers ---
-	var servers []transport.ToServe
+	var servers []transport.Server
 
 	// --- grpc-server ---
 	grpcSrv, err := grpc.NewServer(cfg, store)
