@@ -2,6 +2,7 @@ package persist
 
 import (
 	"context"
+	"github.com/folivorra/goRedis/application"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/storage"
 	"sort"
@@ -14,15 +15,21 @@ type Manager struct {
 	ttl        time.Duration
 }
 
-func NewManager(store storage.Storager, persisters []*PriorityPersister, ttl time.Duration) *Manager {
+func NewManager(store storage.Storager, app *application.App, persisters []*PriorityPersister, ttl time.Duration) *Manager {
 	sort.Slice(persisters, func(i, j int) bool {
 		return persisters[i].priority < persisters[j].priority
 	})
+
 	m := &Manager{
 		store:      store,
 		persisters: persisters,
 		ttl:        ttl,
 	}
+
+	app.RegisterCleanup(func() {
+		m.Stop()
+	})
+
 	return m
 }
 
@@ -72,11 +79,4 @@ func (m *Manager) Stop() {
 			logger.ErrorLogger.Println(p.name, "final dump failed:", err)
 		}
 	}
-
-	//if err := m.r.Close(); err != nil {
-	//	logger.WarningLogger.Printf("close redis error: %s", err)
-	//}
-	//if err := m.p.Close(); err != nil {
-	//	logger.WarningLogger.Printf("close postgres error: %s", err)
-	//} //TODO: to main
 }

@@ -3,17 +3,27 @@ package storage
 import (
 	"context"
 	"database/sql"
+	"github.com/folivorra/goRedis/application"
+	"github.com/folivorra/goRedis/internal/logger"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
-func NewPostgresClient(ctx context.Context, dsn string) (*sql.DB, error) {
+func NewPostgresClient(ctx context.Context, app *application.App, dsn string) *sql.DB {
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
-		return nil, err
+		logger.ErrorLogger.Fatalf("Postgres connection error: %v", err)
 	}
+
 	if err := db.PingContext(ctx); err != nil {
-		return nil, err
+		logger.ErrorLogger.Fatalf("Postgres connection error: %v", err)
 	}
-	return db, nil
+
+	app.RegisterCleanup(func() {
+		if err := db.Close(); err != nil {
+			logger.ErrorLogger.Println(err)
+		}
+	})
+
+	return db
 }

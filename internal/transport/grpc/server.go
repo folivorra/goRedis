@@ -2,6 +2,7 @@ package grpc
 
 import (
 	"context"
+	"github.com/folivorra/goRedis/application"
 	"github.com/folivorra/goRedis/internal/config"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/storage"
@@ -16,7 +17,7 @@ type Server struct {
 	listener   net.Listener
 }
 
-func NewServer(cfg *config.Config, store storage.Storager) (*Server, error) {
+func NewServer(cfg *config.Config, app *application.App, store storage.Storager) (*Server, error) {
 	lis, err := net.Listen("tcp", cfg.Server.GrpcPort)
 	if err != nil {
 		logger.ErrorLogger.Printf("failed to listen: %v", err)
@@ -31,10 +32,16 @@ func NewServer(cfg *config.Config, store storage.Storager) (*Server, error) {
 
 	reflection.Register(grpcServer)
 
-	return &Server{
+	s := &Server{
 		grpcServer: grpcServer,
 		listener:   lis,
-	}, nil
+	}
+
+	app.RegisterCleanup(func() {
+		_ = s.Shutdown(context.Background())
+	})
+
+	return s, nil
 }
 
 func (s *Server) Start() error {
