@@ -37,7 +37,7 @@ func NewServer(cfg *config.Config, app *application.App, store storage.Storager)
 		listener:   lis,
 	}
 
-	app.RegisterCleanup(func() {
+	app.RegisterCleanup(func(ctx context.Context) {
 		_ = s.Shutdown(context.Background())
 	})
 
@@ -56,6 +56,5 @@ func (s *Server) Start() error {
 func (s *Server) Shutdown(_ context.Context) error {
 	logger.InfoLogger.Printf("Shutting down gRPC server on port 50051")
 	s.grpcServer.GracefulStop()
-	logger.InfoLogger.Println("gRPC server shutdown complete")
 	return nil
 }

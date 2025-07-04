@@ -25,11 +25,17 @@ func (p *RedisPersister) Dump(ctx context.Context, data map[int64]model.Item, tt
 
 	expire := ttl
 
-	return p.rdb.Set(ctx, p.key, bytes, expire).Err()
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
+
+	return p.rdb.Set(timeout, p.key, bytes, expire).Err()
 }
 
 func (p *RedisPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
-	bytes, err := p.rdb.Get(ctx, p.key).Result()
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
+
+	bytes, err := p.rdb.Get(timeout, p.key).Result()
 	if err == redis.Nil {
 		return nil, nil
 	} else if err != nil {
@@ -42,8 +48,4 @@ func (p *RedisPersister) Load(ctx context.Context) (map[int64]model.Item, error)
 	}
 
 	return result, nil
-}
-
-func (p *RedisPersister) Close() error {
-	return p.rdb.Close()
 }

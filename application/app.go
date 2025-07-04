@@ -11,7 +11,7 @@ import (
 type App struct {
 	ctx        context.Context
 	cancel     context.CancelFunc
-	cleanup    []func()
+	cleanup    []func(ctx context.Context)
 	shutdownCh chan os.Signal
 }
 
@@ -33,13 +33,14 @@ func (a *App) Wait() {
 func (a *App) Shutdown() {
 	logger.InfoLogger.Println("shutting down...")
 
+	ctx := context.Background()
 	for i := len(a.cleanup) - 1; i >= 0; i-- {
-		a.cleanup[i]()
+		a.cleanup[i](ctx)
 	}
 
 	logger.InfoLogger.Println("shutdown complete")
 }
 
-func (a *App) RegisterCleanup(f func()) {
+func (a *App) RegisterCleanup(f func(ctx context.Context)) {
 	a.cleanup = append(a.cleanup, f)
 }

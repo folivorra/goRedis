@@ -79,6 +79,4 @@ func main() {
 
 	a.Start()
 	a.Wait()
-
-	// TODO: event-sourcing arch || state machine || SAGA pattern
 }

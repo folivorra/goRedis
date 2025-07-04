@@ -26,7 +26,7 @@ func NewManager(store storage.Storager, app *application.App, persisters []*Prio
 		ttl:        ttl,
 	}
 
-	app.RegisterCleanup(func() {
+	app.RegisterCleanup(func(ctx context.Context) {
 		m.Stop()
 	})
 

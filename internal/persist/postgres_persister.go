@@ -40,7 +40,6 @@ func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, err
 	defer rows.Close()
 
 	var result map[int64]model.Item
-	var id int64 = 0
 	for rows.Next() {
 		var item model.Item
 		if err := rows.Scan(&item.ID, &item.Name, &item.Price); err != nil {
@@ -49,19 +48,11 @@ func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, err
 		if result == nil {
 			result = make(map[int64]model.Item, 50)
 		}
-		result[id] = item
-		id++
+		result[item.ID] = item
 	}
 
 	if err := rows.Err(); err != nil {
 		return nil, err
 	}
 	return result, nil
-}
-
-func (p *PostgresPersister) Close() error {
-	if p.db != nil {
-		return p.db.Close()
-	}
-	return nil
 }

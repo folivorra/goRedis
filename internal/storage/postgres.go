@@ -19,11 +19,11 @@ func NewPostgresClient(ctx context.Context, app *application.App, dsn string) *s
 		logger.ErrorLogger.Fatalf("Postgres connection error: %v", err)
 	}
 
-	app.RegisterCleanup(func() {
+	app.RegisterCleanup(func(ctx context.Context) {
 		if err := db.Close(); err != nil {
 			logger.ErrorLogger.Println(err)
 		}
-	})
+	}) // TODO: add timeout ctx to ops with db
 
 	return db
 }

@@ -5,6 +5,7 @@ import (
 	"github.com/folivorra/goRedis/application"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/redis/go-redis/v9"
+	"time"
 )
 
 func NewRedisClient(ctx context.Context, app *application.App) *redis.Client {
@@ -14,13 +15,21 @@ func NewRedisClient(ctx context.Context, app *application.App) *redis.Client {
 		DB:       0,
 	})
 
-	if pong := rdb.Ping(ctx); pong == nil {
-		logger.ErrorLogger.Fatal("Redis connection error")
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
+
+	if err := rdb.Ping(timeout).Err(); err != nil {
+		logger.ErrorLogger.Println("redis init error:", err)
 	}
 
-	app.RegisterCleanup(func() {
-		if err := rdb.Close(); err != nil {
-			logger.ErrorLogger.Println(err)
+	app.RegisterCleanup(func(ctx context.Context) {
+		timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+		defer cancel()
+
+		if err := rdb.Ping(timeout).Err(); err != nil {
+			logger.ErrorLogger.Println("redis connection error:", err)
+		} else if err := rdb.Close(); err != nil {
+			logger.ErrorLogger.Println("redis close error:", err)
 		}
 	})
 

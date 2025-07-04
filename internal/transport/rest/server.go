@@ -31,7 +31,7 @@ func NewServer(cfg *config.Config, app *application.App, store storage.Storager)
 		router:     r,
 	}
 
-	app.RegisterCleanup(func() {
+	app.RegisterCleanup(func(ctx context.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		if err := s.Shutdown(ctx); err != nil {
@@ -52,6 +52,6 @@ func (s *Server) Start() error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
-	logger.InfoLogger.Println("Shutting down server on port 8080")
+	logger.InfoLogger.Println("Shutting down http server on port 8080")
 	return s.httpServer.Shutdown(ctx)
 }
