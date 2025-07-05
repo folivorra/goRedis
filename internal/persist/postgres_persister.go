@@ -16,8 +16,11 @@ func NewPostgresPersister(db *sql.DB) *PostgresPersister {
 }
 
 func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item, _ time.Duration) error {
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
+
 	queryDelete := `DELETE FROM items`
-	_, err := p.db.ExecContext(ctx, queryDelete)
+	_, err := p.db.ExecContext(timeout, queryDelete)
 	if err != nil {
 		return err
 	}
@@ -33,7 +36,10 @@ func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item,
 }
 
 func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
-	rows, err := p.db.QueryContext(ctx, "SELECT id, name, price FROM items")
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
+
+	rows, err := p.db.QueryContext(timeout, "SELECT id, name, price FROM items")
 	if err != nil {
 		return nil, err
 	}
