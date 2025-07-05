@@ -50,7 +50,7 @@ func (m *Manager) Start(ctx context.Context) {
 		for {
 			select {
 			case <-ticker.C:
-				m.dumpForTTL(ctx)
+				m.tryDump(ctx, m.ttl, true)
 			case <-ctx.Done():
 				return
 			}
@@ -58,25 +58,39 @@ func (m *Manager) Start(ctx context.Context) {
 	}()
 }
 
-func (m *Manager) dumpForTTL(ctx context.Context) {
-	snap := m.store.Snapshot()
-
-	for _, p := range m.persisters {
-		if err := p.pers.Dump(ctx, snap, m.ttl); err != nil {
-			logger.ErrorLogger.Println(p.name, "periodic dump failed:", err)
-		} else {
-			return
-		}
-	}
+func (m *Manager) Stop() {
+	ctx := context.Background()
+	m.tryDump(ctx, 0, false)
 }
 
-func (m *Manager) Stop() {
+func (m *Manager) tryDump(ctx context.Context, ttl time.Duration, stopOnSuccess bool) {
 	snap := m.store.Snapshot()
-	ctx := context.Background()
 
 	for _, p := range m.persisters {
-		if err := p.pers.Dump(ctx, snap, 0); err != nil {
-			logger.ErrorLogger.Println(p.name, "final dump failed:", err)
+		if txPers, ok := p.pers.(TxPersister); ok {
+			tx, err := txPers.BeginTx(ctx, 4)
+			if err != nil {
+				logger.ErrorLogger.Println(p.name, "tx begin failed:", err)
+				continue
+			}
+			txPers.UseTx(tx)
+
+			if err := txPers.Dump(ctx, snap, ttl); err != nil {
+				_ = tx.Rollback()
+				logger.ErrorLogger.Println(p.name, "rollback:", err)
+			} else {
+				if err := tx.Commit(); err != nil {
+					logger.ErrorLogger.Println(p.name, "commit failed:", err)
+				} else if stopOnSuccess {
+					return
+				}
+			}
+		} else {
+			if err := p.pers.Dump(ctx, snap, ttl); err != nil {
+				logger.ErrorLogger.Println(p.name, "dump failed:", err)
+			} else if stopOnSuccess {
+				return
+			}
 		}
 	}
 }

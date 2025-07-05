@@ -8,11 +8,29 @@ import (
 )
 
 type PostgresPersister struct {
-	db *sql.DB
+	db     *sql.DB
+	active DBExecutor
+}
+
+type TxPersister interface {
+	Persister
+	BeginTx(context.Context, sql.IsolationLevel) (*sql.Tx, error)
+	UseTx(tx *sql.Tx)
 }
 
 func NewPostgresPersister(db *sql.DB) *PostgresPersister {
-	return &PostgresPersister{db: db}
+	return &PostgresPersister{db: db, active: db}
+}
+
+func (p *PostgresPersister) BeginTx(ctx context.Context, lvl sql.IsolationLevel) (*sql.Tx, error) {
+	opts := &sql.TxOptions{
+		Isolation: lvl,
+	}
+	return p.db.BeginTx(ctx, opts)
+}
+
+func (p *PostgresPersister) UseTx(tx *sql.Tx) {
+	p.active = tx
 }
 
 func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item, _ time.Duration) error {
@@ -20,14 +38,14 @@ func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item,
 	defer cancel()
 
 	queryDelete := `DELETE FROM items`
-	_, err := p.db.ExecContext(timeout, queryDelete)
+	_, err := p.active.ExecContext(timeout, queryDelete)
 	if err != nil {
 		return err
 	}
 
 	queryInsert := `INSERT INTO items (id, name, price) VALUES ($1, $2, $3)`
 	for _, item := range data {
-		_, err := p.db.ExecContext(ctx, queryInsert, item.ID, item.Name, item.Price)
+		_, err := p.active.ExecContext(ctx, queryInsert, item.ID, item.Name, item.Price)
 		if err != nil {
 			return err
 		}
