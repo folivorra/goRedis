@@ -5,6 +5,7 @@ PROTOC_GEN_GO_GRPC_VERSION  = v1.5.1
 ROOT_DIR 					= $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
 BIN_DIR          			= $(ROOT_DIR)/bin
 BUF              			= $(BIN_DIR)/buf
+GEN_DIR						= /gen
 PROTOC_GEN_GO    			= $(BIN_DIR)/protoc-gen-go
 PROTOC_GEN_GO_GRPC 			= $(BIN_DIR)/protoc-gen-go-grpc
 
@@ -32,10 +33,15 @@ $(PROTOC_GEN_GO_GRPC):
 	@GOBIN=$(BIN_DIR) go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@$(PROTOC_GEN_GO_GRPC_VERSION)
 
 # ---------- генерация через buf ----------------------------------------------
-gen: $(BUF) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC)
+gen-buf: $(BUF) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC)
 	@echo "⚙️  buf generate"
 	@$(BUF) generate
 	@echo "✓ protobuf code generated"
+
+# ---------- генерация через protoc ----------------------------------------------
+gen-protoc:
+	mkdir -p $(GEN_DIR)
+	docker run --rm -v $(ROOT_DIR):/defs namely/protoc-all -f goredis/v1/goredis.proto -l go -o /defs/gen
 
 # ---------- очистка -----------------------------------------------------------
 clean:
