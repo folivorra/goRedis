@@ -6,6 +6,14 @@ import "google/protobuf/empty.proto";
 
 option go_package = "github.com/folivorra/goRedis/proto/goredis/v1;goredis_v1";
 
+service GoRedisService {
+  rpc GetItem(GetItemRequest) returns (GetItemResponse);
+  rpc CreateItem(CreateItemRequest) returns (CreateItemResponse);
+  rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
+  rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse);
+  rpc GetAllItems(GetAllItemsRequest) returns (GetAllItemsResponse);
+}
+
 message Item {
   int64 id = 1;
   string name = 2;
@@ -50,12 +58,4 @@ message GetAllItemsRequest {
 
 message GetAllItemsResponse {
   repeated Item items = 1;
-}
-
-service GoRedisService {
-    rpc GetItem(GetItemRequest) returns (GetItemResponse);
-    rpc CreateItem(CreateItemRequest) returns (CreateItemResponse);
-    rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
-    rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse);
-    rpc GetAllItems(GetAllItemsRequest) returns (GetAllItemsResponse);
 }

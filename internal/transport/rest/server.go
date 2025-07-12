@@ -2,11 +2,13 @@ package rest
 
 import (
 	"context"
+	"github.com/folivorra/goRedis/application"
 	"github.com/folivorra/goRedis/internal/config"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/storage"
 	"github.com/gorilla/mux"
 	"net/http"
+	"time"
 )
 
 type Server struct {
@@ -14,7 +16,7 @@ type Server struct {
 	router     *mux.Router
 }
 
-func NewServer(cfg *config.Config, store storage.Storager) *Server {
+func NewServer(cfg *config.Config, app *application.App, store storage.Storager) *Server {
 	c := NewItemController(store)
 	r := mux.NewRouter()
 	c.RegisterRoutes(r)
@@ -24,10 +26,20 @@ func NewServer(cfg *config.Config, store storage.Storager) *Server {
 		Handler: r,
 	}
 
-	return &Server{
+	s := &Server{
 		httpServer: srv,
 		router:     r,
 	}
+
+	app.RegisterCleanup(func(ctx context.Context) {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := s.Shutdown(ctx); err != nil {
+			logger.ErrorLogger.Printf("Failed to shutdown http server: %v", err)
+		}
+	})
+
+	return s
 }
 
 func (s *Server) Start() error {
@@ -40,6 +52,6 @@ func (s *Server) Start() error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
-	logger.InfoLogger.Println("Shutting down server on port 8080")
+	logger.InfoLogger.Println("Shutting down http server on port 8080")
 	return s.httpServer.Shutdown(ctx)
 }

@@ -4,30 +4,48 @@ import (
 	"context"
 	"database/sql"
 	"github.com/folivorra/goRedis/internal/model"
+	"time"
 )
 
 type PostgresPersister struct {
-	db *sql.DB
+	db     *sql.DB
+	active DBExecutor
+}
+
+type TxPersister interface {
+	Persister
+	BeginTx(context.Context, sql.IsolationLevel) (*sql.Tx, error)
+	UseTx(tx *sql.Tx)
 }
 
 func NewPostgresPersister(db *sql.DB) *PostgresPersister {
-	return &PostgresPersister{db: db}
+	return &PostgresPersister{db: db, active: db}
 }
 
-func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item) error {
-	if err := p.tableInit(); err != nil {
-		return err
+func (p *PostgresPersister) BeginTx(ctx context.Context, lvl sql.IsolationLevel) (*sql.Tx, error) {
+	opts := &sql.TxOptions{
+		Isolation: lvl,
 	}
+	return p.db.BeginTx(ctx, opts)
+}
+
+func (p *PostgresPersister) UseTx(tx *sql.Tx) {
+	p.active = tx
+}
+
+func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item, _ time.Duration) error {
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
 
 	queryDelete := `DELETE FROM items`
-	_, err := p.db.ExecContext(ctx, queryDelete)
+	_, err := p.active.ExecContext(timeout, queryDelete)
 	if err != nil {
 		return err
 	}
 
 	queryInsert := `INSERT INTO items (id, name, price) VALUES ($1, $2, $3)`
 	for _, item := range data {
-		_, err := p.db.ExecContext(ctx, queryInsert, item.ID, item.Name, item.Price)
+		_, err := p.active.ExecContext(ctx, queryInsert, item.ID, item.Name, item.Price)
 		if err != nil {
 			return err
 		}
@@ -35,51 +53,30 @@ func (p *PostgresPersister) Dump(ctx context.Context, data map[int64]model.Item)
 	return nil
 }
 
-func (p *PostgresPersister) tableInit() error {
-	var query = `
-	CREATE TABLE IF NOT EXISTS items (
-		id SERIAL PRIMARY KEY,
-		name TEXT NOT NULL,
-		price DOUBLE PRECISION NOT NULL
-	)`
-	_, err := p.db.Exec(query)
-	return err
-}
-
 func (p *PostgresPersister) Load(ctx context.Context) (map[int64]model.Item, error) {
-	if err := p.tableInit(); err != nil {
-		return nil, err
-	}
+	timeout, cancel := context.WithTimeout(ctx, 500*time.Millisecond)
+	defer cancel()
 
-	rows, err := p.db.QueryContext(ctx, "SELECT id, name, price FROM items")
+	rows, err := p.db.QueryContext(timeout, "SELECT id, name, price FROM items")
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
 	var result map[int64]model.Item
-	var id int64 = 0
 	for rows.Next() {
 		var item model.Item
 		if err := rows.Scan(&item.ID, &item.Name, &item.Price); err != nil {
 			return nil, err
 		}
 		if result == nil {
-			result = make(map[int64]model.Item)
+			result = make(map[int64]model.Item, 50)
 		}
-		result[id] = item
-		id++
+		result[item.ID] = item
 	}
 
 	if err := rows.Err(); err != nil {
 		return nil, err
 	}
 	return result, nil
-}
-
-func (p *PostgresPersister) Close() error {
-	if p.db != nil {
-		return p.db.Close()
-	}
-	return nil
 }

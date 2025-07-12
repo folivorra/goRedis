@@ -11,9 +11,10 @@ type Loader interface {
 }
 
 type Dumper interface {
-	Dump(ctx context.Context, data map[int64]model.Item) error
+	Dump(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error
 }
 
-type TTLSetter interface {
-	DumpTTL(ctx context.Context, data map[int64]model.Item, ttl time.Duration) error
+type Persister interface {
+	Loader
+	Dumper
 }

@@ -2,45 +2,44 @@ package persist
 
 import (
 	"context"
+	"github.com/folivorra/goRedis/application"
 	"github.com/folivorra/goRedis/internal/logger"
 	"github.com/folivorra/goRedis/internal/storage"
+	"sort"
 	"time"
 )
 
 type Manager struct {
-	store storage.Storager
-	f     *FilePersister
-	r     *RedisPersister
-	p     *PostgresPersister
-	ttl   time.Duration
+	store      storage.Storager
+	persisters []*PriorityPersister
+	ttl        time.Duration
 }
 
-func NewManager(ctx context.Context, store storage.Storager, f *FilePersister, r *RedisPersister, p *PostgresPersister, ttl time.Duration) *Manager {
+func NewManager(store storage.Storager, app *application.App, persisters []*PriorityPersister, ttl time.Duration) *Manager {
+	sort.Slice(persisters, func(i, j int) bool {
+		return persisters[i].priority < persisters[j].priority
+	})
+
 	m := &Manager{
-		store: store,
-		f:     f,
-		r:     r,
-		p:     p,
-		ttl:   ttl,
+		store:      store,
+		persisters: persisters,
+		ttl:        ttl,
 	}
-	m.restore(ctx)
+
+	app.RegisterCleanup(func(ctx context.Context) {
+		m.Stop()
+	})
+
 	return m
 }
 
-func (m *Manager) restore(ctx context.Context) {
-	if data, _ := m.r.Load(ctx); data != nil {
-		m.store.Replace(data)
-		logger.InfoLogger.Println("redis data restored")
-		return
-	}
-	if data, _ := m.p.Load(ctx); data != nil {
-		m.store.Replace(data)
-		logger.InfoLogger.Println("postgres data restored")
-		return
-	}
-	if data, _ := m.f.Load(ctx); data != nil {
-		m.store.Replace(data)
-		logger.InfoLogger.Println("file data restored")
+func (m *Manager) Restore(ctx context.Context) {
+	for _, p := range m.persisters {
+		if data, _ := p.pers.Load(ctx); data != nil {
+			m.store.Replace(data)
+			logger.InfoLogger.Println(p.name, "data restored")
+			return
+		}
 	}
 }
 
@@ -51,7 +50,7 @@ func (m *Manager) Start(ctx context.Context) {
 		for {
 			select {
 			case <-ticker.C:
-				m.dumpToRedis(ctx)
+				m.tryDump(ctx, m.ttl, true)
 			case <-ctx.Done():
 				return
 			}
@@ -59,30 +58,39 @@ func (m *Manager) Start(ctx context.Context) {
 	}()
 }
 
-func (m *Manager) dumpToRedis(ctx context.Context) {
-	snap := m.store.Snapshot()
-	if err := m.r.DumpTTL(ctx, snap, m.ttl); err != nil {
-		logger.WarningLogger.Printf("periodic dump to redis error: %s", err)
-	}
+func (m *Manager) Stop() {
+	ctx := context.Background()
+	m.tryDump(ctx, 0, false)
 }
 
-func (m *Manager) Stop() {
+func (m *Manager) tryDump(ctx context.Context, ttl time.Duration, stopOnSuccess bool) {
 	snap := m.store.Snapshot()
-	ctx := context.Background()
 
-	if err := m.r.Dump(ctx, snap); err != nil {
-		logger.WarningLogger.Printf("dump to redis error: %s", err)
-	}
-	if err := m.p.Dump(ctx, snap); err != nil {
-		logger.WarningLogger.Printf("dump to postgres error: %s", err)
-	}
-	if err := m.f.Dump(ctx, snap); err != nil {
-		logger.WarningLogger.Printf("dump to file error: %s", err)
-	}
-	if err := m.r.Close(); err != nil {
-		logger.WarningLogger.Printf("close redis error: %s", err)
-	}
-	if err := m.p.Close(); err != nil {
-		logger.WarningLogger.Printf("close postgres error: %s", err)
+	for _, p := range m.persisters {
+		if txPers, ok := p.pers.(TxPersister); ok {
+			tx, err := txPers.BeginTx(ctx, 4)
+			if err != nil {
+				logger.ErrorLogger.Println(p.name, "tx begin failed:", err)
+				continue
+			}
+			txPers.UseTx(tx)
+
+			if err := txPers.Dump(ctx, snap, ttl); err != nil {
+				_ = tx.Rollback()
+				logger.ErrorLogger.Println(p.name, "rollback:", err)
+			} else {
+				if err := tx.Commit(); err != nil {
+					logger.ErrorLogger.Println(p.name, "commit failed:", err)
+				} else if stopOnSuccess {
+					return
+				}
+			}
+		} else {
+			if err := p.pers.Dump(ctx, snap, ttl); err != nil {
+				logger.ErrorLogger.Println(p.name, "dump failed:", err)
+			} else if stopOnSuccess {
+				return
+			}
+		}
 	}
 }
