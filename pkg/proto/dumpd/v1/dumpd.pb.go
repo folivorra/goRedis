@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: goredis/v1/goredis.proto
+// source: dumpd/v1/dumpd.proto
 
-package goredis_v1
+package dumpd_v1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -33,7 +33,7 @@ type Item struct {
 
 func (x *Item) Reset() {
 	*x = Item{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[0]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *Item) String() string {
 func (*Item) ProtoMessage() {}
 
 func (x *Item) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[0]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *Item) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Item.ProtoReflect.Descriptor instead.
 func (*Item) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{0}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Item) GetId() int64 {
@@ -91,7 +91,7 @@ type GetItemRequest struct {
 
 func (x *GetItemRequest) Reset() {
 	*x = GetItemRequest{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[1]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +103,7 @@ func (x *GetItemRequest) String() string {
 func (*GetItemRequest) ProtoMessage() {}
 
 func (x *GetItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[1]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +116,7 @@ func (x *GetItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetItemRequest.ProtoReflect.Descriptor instead.
 func (*GetItemRequest) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{1}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetItemRequest) GetId() int64 {
@@ -135,7 +135,7 @@ type GetItemResponse struct {
 
 func (x *GetItemResponse) Reset() {
 	*x = GetItemResponse{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[2]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -147,7 +147,7 @@ func (x *GetItemResponse) String() string {
 func (*GetItemResponse) ProtoMessage() {}
 
 func (x *GetItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[2]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +160,7 @@ func (x *GetItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetItemResponse.ProtoReflect.Descriptor instead.
 func (*GetItemResponse) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{2}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetItemResponse) GetItem() *Item {
@@ -179,7 +179,7 @@ type CreateItemRequest struct {
 
 func (x *CreateItemRequest) Reset() {
 	*x = CreateItemRequest{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[3]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -191,7 +191,7 @@ func (x *CreateItemRequest) String() string {
 func (*CreateItemRequest) ProtoMessage() {}
 
 func (x *CreateItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[3]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -204,7 +204,7 @@ func (x *CreateItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateItemRequest.ProtoReflect.Descriptor instead.
 func (*CreateItemRequest) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{3}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateItemRequest) GetItem() *Item {
@@ -223,7 +223,7 @@ type CreateItemResponse struct {
 
 func (x *CreateItemResponse) Reset() {
 	*x = CreateItemResponse{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[4]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -235,7 +235,7 @@ func (x *CreateItemResponse) String() string {
 func (*CreateItemResponse) ProtoMessage() {}
 
 func (x *CreateItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[4]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -248,7 +248,7 @@ func (x *CreateItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateItemResponse.ProtoReflect.Descriptor instead.
 func (*CreateItemResponse) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{4}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CreateItemResponse) GetItem() *Item {
@@ -267,7 +267,7 @@ type UpdateItemRequest struct {
 
 func (x *UpdateItemRequest) Reset() {
 	*x = UpdateItemRequest{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[5]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -279,7 +279,7 @@ func (x *UpdateItemRequest) String() string {
 func (*UpdateItemRequest) ProtoMessage() {}
 
 func (x *UpdateItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[5]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,7 +292,7 @@ func (x *UpdateItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateItemRequest.ProtoReflect.Descriptor instead.
 func (*UpdateItemRequest) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{5}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateItemRequest) GetItem() *Item {
@@ -311,7 +311,7 @@ type UpdateItemResponse struct {
 
 func (x *UpdateItemResponse) Reset() {
 	*x = UpdateItemResponse{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[6]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -323,7 +323,7 @@ func (x *UpdateItemResponse) String() string {
 func (*UpdateItemResponse) ProtoMessage() {}
 
 func (x *UpdateItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[6]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -336,7 +336,7 @@ func (x *UpdateItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateItemResponse.ProtoReflect.Descriptor instead.
 func (*UpdateItemResponse) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{6}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateItemResponse) GetItem() *Item {
@@ -355,7 +355,7 @@ type DeleteItemRequest struct {
 
 func (x *DeleteItemRequest) Reset() {
 	*x = DeleteItemRequest{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[7]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -367,7 +367,7 @@ func (x *DeleteItemRequest) String() string {
 func (*DeleteItemRequest) ProtoMessage() {}
 
 func (x *DeleteItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[7]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -380,7 +380,7 @@ func (x *DeleteItemRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteItemRequest.ProtoReflect.Descriptor instead.
 func (*DeleteItemRequest) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{7}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteItemRequest) GetId() int64 {
@@ -399,7 +399,7 @@ type DeleteItemResponse struct {
 
 func (x *DeleteItemResponse) Reset() {
 	*x = DeleteItemResponse{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[8]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -411,7 +411,7 @@ func (x *DeleteItemResponse) String() string {
 func (*DeleteItemResponse) ProtoMessage() {}
 
 func (x *DeleteItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[8]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -424,7 +424,7 @@ func (x *DeleteItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteItemResponse.ProtoReflect.Descriptor instead.
 func (*DeleteItemResponse) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{8}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteItemResponse) GetEmpty() *emptypb.Empty {
@@ -443,7 +443,7 @@ type GetAllItemsRequest struct {
 
 func (x *GetAllItemsRequest) Reset() {
 	*x = GetAllItemsRequest{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[9]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -455,7 +455,7 @@ func (x *GetAllItemsRequest) String() string {
 func (*GetAllItemsRequest) ProtoMessage() {}
 
 func (x *GetAllItemsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[9]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -468,7 +468,7 @@ func (x *GetAllItemsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllItemsRequest.ProtoReflect.Descriptor instead.
 func (*GetAllItemsRequest) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{9}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetAllItemsRequest) GetEmpty() *emptypb.Empty {
@@ -487,7 +487,7 @@ type GetAllItemsResponse struct {
 
 func (x *GetAllItemsResponse) Reset() {
 	*x = GetAllItemsResponse{}
-	mi := &file_goredis_v1_goredis_proto_msgTypes[10]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -499,7 +499,7 @@ func (x *GetAllItemsResponse) String() string {
 func (*GetAllItemsResponse) ProtoMessage() {}
 
 func (x *GetAllItemsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_goredis_v1_goredis_proto_msgTypes[10]
+	mi := &file_dumpd_v1_dumpd_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -512,7 +512,7 @@ func (x *GetAllItemsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllItemsResponse.ProtoReflect.Descriptor instead.
 func (*GetAllItemsResponse) Descriptor() ([]byte, []int) {
-	return file_goredis_v1_goredis_proto_rawDescGZIP(), []int{10}
+	return file_dumpd_v1_dumpd_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetAllItemsResponse) GetItems() []*Item {
@@ -522,92 +522,91 @@ func (x *GetAllItemsResponse) GetItems() []*Item {
 	return nil
 }
 
-var File_goredis_v1_goredis_proto protoreflect.FileDescriptor
+var File_dumpd_v1_dumpd_proto protoreflect.FileDescriptor
 
-const file_goredis_v1_goredis_proto_rawDesc = "" +
+const file_dumpd_v1_dumpd_proto_rawDesc = "" +
 	"\n" +
-	"\x18goredis/v1/goredis.proto\x12\n" +
-	"goredis.v1\x1a\x1bgoogle/protobuf/empty.proto\"@\n" +
+	"\x14dumpd/v1/dumpd.proto\x12\bdumpd.v1\x1a\x1bgoogle/protobuf/empty.proto\"@\n" +
 	"\x04Item\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05price\x18\x03 \x01(\x01R\x05price\" \n" +
 	"\x0eGetItemRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"7\n" +
-	"\x0fGetItemResponse\x12$\n" +
-	"\x04item\x18\x01 \x01(\v2\x10.goredis.v1.ItemR\x04item\"9\n" +
-	"\x11CreateItemRequest\x12$\n" +
-	"\x04item\x18\x01 \x01(\v2\x10.goredis.v1.ItemR\x04item\":\n" +
-	"\x12CreateItemResponse\x12$\n" +
-	"\x04item\x18\x01 \x01(\v2\x10.goredis.v1.ItemR\x04item\"9\n" +
-	"\x11UpdateItemRequest\x12$\n" +
-	"\x04item\x18\x01 \x01(\v2\x10.goredis.v1.ItemR\x04item\":\n" +
-	"\x12UpdateItemResponse\x12$\n" +
-	"\x04item\x18\x01 \x01(\v2\x10.goredis.v1.ItemR\x04item\"#\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"5\n" +
+	"\x0fGetItemResponse\x12\"\n" +
+	"\x04item\x18\x01 \x01(\v2\x0e.dumpd.v1.ItemR\x04item\"7\n" +
+	"\x11CreateItemRequest\x12\"\n" +
+	"\x04item\x18\x01 \x01(\v2\x0e.dumpd.v1.ItemR\x04item\"8\n" +
+	"\x12CreateItemResponse\x12\"\n" +
+	"\x04item\x18\x01 \x01(\v2\x0e.dumpd.v1.ItemR\x04item\"7\n" +
+	"\x11UpdateItemRequest\x12\"\n" +
+	"\x04item\x18\x01 \x01(\v2\x0e.dumpd.v1.ItemR\x04item\"8\n" +
+	"\x12UpdateItemResponse\x12\"\n" +
+	"\x04item\x18\x01 \x01(\v2\x0e.dumpd.v1.ItemR\x04item\"#\n" +
 	"\x11DeleteItemRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"B\n" +
 	"\x12DeleteItemResponse\x12,\n" +
 	"\x05empty\x18\x01 \x01(\v2\x16.google.protobuf.EmptyR\x05empty\"B\n" +
 	"\x12GetAllItemsRequest\x12,\n" +
-	"\x05empty\x18\x01 \x01(\v2\x16.google.protobuf.EmptyR\x05empty\"=\n" +
-	"\x13GetAllItemsResponse\x12&\n" +
-	"\x05items\x18\x01 \x03(\v2\x10.goredis.v1.ItemR\x05items2\x8b\x03\n" +
-	"\x0eGoRedisService\x12B\n" +
-	"\aGetItem\x12\x1a.goredis.v1.GetItemRequest\x1a\x1b.goredis.v1.GetItemResponse\x12K\n" +
+	"\x05empty\x18\x01 \x01(\v2\x16.google.protobuf.EmptyR\x05empty\";\n" +
+	"\x13GetAllItemsResponse\x12$\n" +
+	"\x05items\x18\x01 \x03(\v2\x0e.dumpd.v1.ItemR\x05items2\xf5\x02\n" +
+	"\fDumpdService\x12>\n" +
+	"\aGetItem\x12\x18.dumpd.v1.GetItemRequest\x1a\x19.dumpd.v1.GetItemResponse\x12G\n" +
 	"\n" +
-	"CreateItem\x12\x1d.goredis.v1.CreateItemRequest\x1a\x1e.goredis.v1.CreateItemResponse\x12K\n" +
+	"CreateItem\x12\x1b.dumpd.v1.CreateItemRequest\x1a\x1c.dumpd.v1.CreateItemResponse\x12G\n" +
 	"\n" +
-	"UpdateItem\x12\x1d.goredis.v1.UpdateItemRequest\x1a\x1e.goredis.v1.UpdateItemResponse\x12K\n" +
+	"UpdateItem\x12\x1b.dumpd.v1.UpdateItemRequest\x1a\x1c.dumpd.v1.UpdateItemResponse\x12G\n" +
 	"\n" +
-	"DeleteItem\x12\x1d.goredis.v1.DeleteItemRequest\x1a\x1e.goredis.v1.DeleteItemResponse\x12N\n" +
-	"\vGetAllItems\x12\x1e.goredis.v1.GetAllItemsRequest\x1a\x1f.goredis.v1.GetAllItemsResponseB:Z8github.com/folivorra/goRedis/proto/goredis/v1;goredis_v1b\x06proto3"
+	"DeleteItem\x12\x1b.dumpd.v1.DeleteItemRequest\x1a\x1c.dumpd.v1.DeleteItemResponse\x12J\n" +
+	"\vGetAllItems\x12\x1c.dumpd.v1.GetAllItemsRequest\x1a\x1d.dumpd.v1.GetAllItemsResponseB4Z2github.com/folivorra/dumpd/proto/dumpd/v1;dumpd_v1b\x06proto3"
 
 var (
-	file_goredis_v1_goredis_proto_rawDescOnce sync.Once
-	file_goredis_v1_goredis_proto_rawDescData []byte
+	file_dumpd_v1_dumpd_proto_rawDescOnce sync.Once
+	file_dumpd_v1_dumpd_proto_rawDescData []byte
 )
 
-func file_goredis_v1_goredis_proto_rawDescGZIP() []byte {
-	file_goredis_v1_goredis_proto_rawDescOnce.Do(func() {
-		file_goredis_v1_goredis_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_goredis_v1_goredis_proto_rawDesc), len(file_goredis_v1_goredis_proto_rawDesc)))
+func file_dumpd_v1_dumpd_proto_rawDescGZIP() []byte {
+	file_dumpd_v1_dumpd_proto_rawDescOnce.Do(func() {
+		file_dumpd_v1_dumpd_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_dumpd_v1_dumpd_proto_rawDesc), len(file_dumpd_v1_dumpd_proto_rawDesc)))
 	})
-	return file_goredis_v1_goredis_proto_rawDescData
+	return file_dumpd_v1_dumpd_proto_rawDescData
 }
 
-var file_goredis_v1_goredis_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_goredis_v1_goredis_proto_goTypes = []any{
-	(*Item)(nil),                // 0: goredis.v1.Item
-	(*GetItemRequest)(nil),      // 1: goredis.v1.GetItemRequest
-	(*GetItemResponse)(nil),     // 2: goredis.v1.GetItemResponse
-	(*CreateItemRequest)(nil),   // 3: goredis.v1.CreateItemRequest
-	(*CreateItemResponse)(nil),  // 4: goredis.v1.CreateItemResponse
-	(*UpdateItemRequest)(nil),   // 5: goredis.v1.UpdateItemRequest
-	(*UpdateItemResponse)(nil),  // 6: goredis.v1.UpdateItemResponse
-	(*DeleteItemRequest)(nil),   // 7: goredis.v1.DeleteItemRequest
-	(*DeleteItemResponse)(nil),  // 8: goredis.v1.DeleteItemResponse
-	(*GetAllItemsRequest)(nil),  // 9: goredis.v1.GetAllItemsRequest
-	(*GetAllItemsResponse)(nil), // 10: goredis.v1.GetAllItemsResponse
+var file_dumpd_v1_dumpd_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_dumpd_v1_dumpd_proto_goTypes = []any{
+	(*Item)(nil),                // 0: dumpd.v1.Item
+	(*GetItemRequest)(nil),      // 1: dumpd.v1.GetItemRequest
+	(*GetItemResponse)(nil),     // 2: dumpd.v1.GetItemResponse
+	(*CreateItemRequest)(nil),   // 3: dumpd.v1.CreateItemRequest
+	(*CreateItemResponse)(nil),  // 4: dumpd.v1.CreateItemResponse
+	(*UpdateItemRequest)(nil),   // 5: dumpd.v1.UpdateItemRequest
+	(*UpdateItemResponse)(nil),  // 6: dumpd.v1.UpdateItemResponse
+	(*DeleteItemRequest)(nil),   // 7: dumpd.v1.DeleteItemRequest
+	(*DeleteItemResponse)(nil),  // 8: dumpd.v1.DeleteItemResponse
+	(*GetAllItemsRequest)(nil),  // 9: dumpd.v1.GetAllItemsRequest
+	(*GetAllItemsResponse)(nil), // 10: dumpd.v1.GetAllItemsResponse
 	(*emptypb.Empty)(nil),       // 11: google.protobuf.Empty
 }
-var file_goredis_v1_goredis_proto_depIdxs = []int32{
-	0,  // 0: goredis.v1.GetItemResponse.item:type_name -> goredis.v1.Item
-	0,  // 1: goredis.v1.CreateItemRequest.item:type_name -> goredis.v1.Item
-	0,  // 2: goredis.v1.CreateItemResponse.item:type_name -> goredis.v1.Item
-	0,  // 3: goredis.v1.UpdateItemRequest.item:type_name -> goredis.v1.Item
-	0,  // 4: goredis.v1.UpdateItemResponse.item:type_name -> goredis.v1.Item
-	11, // 5: goredis.v1.DeleteItemResponse.empty:type_name -> google.protobuf.Empty
-	11, // 6: goredis.v1.GetAllItemsRequest.empty:type_name -> google.protobuf.Empty
-	0,  // 7: goredis.v1.GetAllItemsResponse.items:type_name -> goredis.v1.Item
-	1,  // 8: goredis.v1.GoRedisService.GetItem:input_type -> goredis.v1.GetItemRequest
-	3,  // 9: goredis.v1.GoRedisService.CreateItem:input_type -> goredis.v1.CreateItemRequest
-	5,  // 10: goredis.v1.GoRedisService.UpdateItem:input_type -> goredis.v1.UpdateItemRequest
-	7,  // 11: goredis.v1.GoRedisService.DeleteItem:input_type -> goredis.v1.DeleteItemRequest
-	9,  // 12: goredis.v1.GoRedisService.GetAllItems:input_type -> goredis.v1.GetAllItemsRequest
-	2,  // 13: goredis.v1.GoRedisService.GetItem:output_type -> goredis.v1.GetItemResponse
-	4,  // 14: goredis.v1.GoRedisService.CreateItem:output_type -> goredis.v1.CreateItemResponse
-	6,  // 15: goredis.v1.GoRedisService.UpdateItem:output_type -> goredis.v1.UpdateItemResponse
-	8,  // 16: goredis.v1.GoRedisService.DeleteItem:output_type -> goredis.v1.DeleteItemResponse
-	10, // 17: goredis.v1.GoRedisService.GetAllItems:output_type -> goredis.v1.GetAllItemsResponse
+var file_dumpd_v1_dumpd_proto_depIdxs = []int32{
+	0,  // 0: dumpd.v1.GetItemResponse.item:type_name -> dumpd.v1.Item
+	0,  // 1: dumpd.v1.CreateItemRequest.item:type_name -> dumpd.v1.Item
+	0,  // 2: dumpd.v1.CreateItemResponse.item:type_name -> dumpd.v1.Item
+	0,  // 3: dumpd.v1.UpdateItemRequest.item:type_name -> dumpd.v1.Item
+	0,  // 4: dumpd.v1.UpdateItemResponse.item:type_name -> dumpd.v1.Item
+	11, // 5: dumpd.v1.DeleteItemResponse.empty:type_name -> google.protobuf.Empty
+	11, // 6: dumpd.v1.GetAllItemsRequest.empty:type_name -> google.protobuf.Empty
+	0,  // 7: dumpd.v1.GetAllItemsResponse.items:type_name -> dumpd.v1.Item
+	1,  // 8: dumpd.v1.DumpdService.GetItem:input_type -> dumpd.v1.GetItemRequest
+	3,  // 9: dumpd.v1.DumpdService.CreateItem:input_type -> dumpd.v1.CreateItemRequest
+	5,  // 10: dumpd.v1.DumpdService.UpdateItem:input_type -> dumpd.v1.UpdateItemRequest
+	7,  // 11: dumpd.v1.DumpdService.DeleteItem:input_type -> dumpd.v1.DeleteItemRequest
+	9,  // 12: dumpd.v1.DumpdService.GetAllItems:input_type -> dumpd.v1.GetAllItemsRequest
+	2,  // 13: dumpd.v1.DumpdService.GetItem:output_type -> dumpd.v1.GetItemResponse
+	4,  // 14: dumpd.v1.DumpdService.CreateItem:output_type -> dumpd.v1.CreateItemResponse
+	6,  // 15: dumpd.v1.DumpdService.UpdateItem:output_type -> dumpd.v1.UpdateItemResponse
+	8,  // 16: dumpd.v1.DumpdService.DeleteItem:output_type -> dumpd.v1.DeleteItemResponse
+	10, // 17: dumpd.v1.DumpdService.GetAllItems:output_type -> dumpd.v1.GetAllItemsResponse
 	13, // [13:18] is the sub-list for method output_type
 	8,  // [8:13] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
@@ -615,26 +614,26 @@ var file_goredis_v1_goredis_proto_depIdxs = []int32{
 	0,  // [0:8] is the sub-list for field type_name
 }
 
-func init() { file_goredis_v1_goredis_proto_init() }
-func file_goredis_v1_goredis_proto_init() {
-	if File_goredis_v1_goredis_proto != nil {
+func init() { file_dumpd_v1_dumpd_proto_init() }
+func file_dumpd_v1_dumpd_proto_init() {
+	if File_dumpd_v1_dumpd_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_goredis_v1_goredis_proto_rawDesc), len(file_goredis_v1_goredis_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_dumpd_v1_dumpd_proto_rawDesc), len(file_dumpd_v1_dumpd_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_goredis_v1_goredis_proto_goTypes,
-		DependencyIndexes: file_goredis_v1_goredis_proto_depIdxs,
-		MessageInfos:      file_goredis_v1_goredis_proto_msgTypes,
+		GoTypes:           file_dumpd_v1_dumpd_proto_goTypes,
+		DependencyIndexes: file_dumpd_v1_dumpd_proto_depIdxs,
+		MessageInfos:      file_dumpd_v1_dumpd_proto_msgTypes,
 	}.Build()
-	File_goredis_v1_goredis_proto = out.File
-	file_goredis_v1_goredis_proto_goTypes = nil
-	file_goredis_v1_goredis_proto_depIdxs = nil
+	File_dumpd_v1_dumpd_proto = out.File
+	file_dumpd_v1_dumpd_proto_goTypes = nil
+	file_dumpd_v1_dumpd_proto_depIdxs = nil
 }

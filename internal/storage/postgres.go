@@ -3,8 +3,8 @@ package storage
 import (
 	"context"
 	"database/sql"
-	"github.com/folivorra/goRedis/application"
-	"github.com/folivorra/goRedis/internal/logger"
+	"github.com/folivorra/dumpd/application"
+	"github.com/folivorra/dumpd/internal/logger"
 	"time"
 
 	_ "github.com/jackc/pgx/v5/stdlib"

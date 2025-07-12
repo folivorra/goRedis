@@ -2,7 +2,7 @@ package storage
 
 import (
 	"fmt"
-	"github.com/folivorra/goRedis/internal/model"
+	"github.com/folivorra/dumpd/internal/model"
 	"sync"
 )
 

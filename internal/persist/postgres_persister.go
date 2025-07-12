@@ -3,7 +3,7 @@ package persist
 import (
 	"context"
 	"database/sql"
-	"github.com/folivorra/goRedis/internal/model"
+	"github.com/folivorra/dumpd/internal/model"
 	"time"
 )
 

@@ -2,11 +2,11 @@ package grpc
 
 import (
 	"context"
-	"github.com/folivorra/goRedis/application"
-	"github.com/folivorra/goRedis/internal/config"
-	"github.com/folivorra/goRedis/internal/logger"
-	"github.com/folivorra/goRedis/internal/storage"
-	goredis_v1 "github.com/folivorra/goRedis/pkg/proto/goredis/v1"
+	"github.com/folivorra/dumpd/application"
+	"github.com/folivorra/dumpd/internal/config"
+	"github.com/folivorra/dumpd/internal/logger"
+	"github.com/folivorra/dumpd/internal/storage"
+	dumpd_v1 "github.com/folivorra/dumpd/pkg/proto/dumpd/v1"
 	rpc "google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"net"
@@ -28,7 +28,7 @@ func NewServer(cfg *config.Config, app *application.App, store storage.Storager)
 
 	service := NewItemController(store)
 
-	goredis_v1.RegisterGoRedisServiceServer(grpcServer, service)
+	dumpd_v1.RegisterDumpdServiceServer(grpcServer, service)
 
 	reflection.Register(grpcServer)
 

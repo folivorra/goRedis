@@ -2,8 +2,8 @@ package storage
 
 import (
 	"context"
-	"github.com/folivorra/goRedis/application"
-	"github.com/folivorra/goRedis/internal/logger"
+	"github.com/folivorra/dumpd/application"
+	"github.com/folivorra/dumpd/internal/logger"
 	"github.com/redis/go-redis/v9"
 	"time"
 )

@@ -2,7 +2,7 @@ package application
 
 import (
 	"context"
-	"github.com/folivorra/goRedis/internal/logger"
+	"github.com/folivorra/dumpd/internal/logger"
 	"os"
 	"os/signal"
 	"syscall"
