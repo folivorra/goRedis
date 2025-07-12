@@ -56,6 +56,8 @@ services:
     networks:
       - app-network
 
+# goose
+
 volumes:
   redis_data:
   postgres_data:

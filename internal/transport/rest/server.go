@@ -2,10 +2,10 @@ package rest
 
 import (
 	"context"
-	"github.com/folivorra/goRedis/application"
-	"github.com/folivorra/goRedis/internal/config"
-	"github.com/folivorra/goRedis/internal/logger"
-	"github.com/folivorra/goRedis/internal/storage"
+	"github.com/folivorra/dumpd/application"
+	"github.com/folivorra/dumpd/internal/config"
+	"github.com/folivorra/dumpd/internal/logger"
+	"github.com/folivorra/dumpd/internal/storage"
 	"github.com/gorilla/mux"
 	"net/http"
 	"time"

@@ -41,7 +41,7 @@ gen-buf: $(BUF) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC)
 # ---------- генерация через protoc ----------------------------------------------
 gen-protoc:
 	mkdir -p $(GEN_DIR)
-	docker run --rm -v $(ROOT_DIR):/defs namely/protoc-all -f goredis/v1/goredis.proto -l go -o /defs/gen
+	docker run --rm -v $(ROOT_DIR):/defs namely/protoc-all -f dumpd/v1/dumpd.proto -l go -o /defs/gen
 
 # ---------- очистка -----------------------------------------------------------
 clean:

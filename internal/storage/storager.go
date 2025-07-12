@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/folivorra/goRedis/internal/model"
+import "github.com/folivorra/dumpd/internal/model"
 
 type Storager interface {
 	CreateItem(item model.Item) (err error)

@@ -2,9 +2,9 @@ package rest
 
 import (
 	"encoding/json"
-	"github.com/folivorra/goRedis/internal/logger"
-	"github.com/folivorra/goRedis/internal/model"
-	"github.com/folivorra/goRedis/internal/storage"
+	"github.com/folivorra/dumpd/internal/logger"
+	"github.com/folivorra/dumpd/internal/model"
+	"github.com/folivorra/dumpd/internal/storage"
 	"github.com/gorilla/mux"
 	"net/http"
 	"strconv"

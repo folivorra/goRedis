@@ -3,7 +3,7 @@ package persist
 import (
 	"context"
 	"encoding/json"
-	"github.com/folivorra/goRedis/internal/model"
+	"github.com/folivorra/dumpd/internal/model"
 	"github.com/redis/go-redis/v9"
 	"time"
 )

@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package goredis.v1;
+package dumpd.v1;
 
 import "google/protobuf/empty.proto";
 
-option go_package = "github.com/folivorra/goRedis/proto/goredis/v1;goredis_v1";
+option go_package = "github.com/folivorra/dumpd/proto/dumpd/v1;dumpd_v1";
 
-service GoRedisService {
+service DumpdService {
   rpc GetItem(GetItemRequest) returns (GetItemResponse);
   rpc CreateItem(CreateItemRequest) returns (CreateItemResponse);
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
